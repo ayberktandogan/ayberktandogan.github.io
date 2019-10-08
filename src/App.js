@@ -1,25 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Header from './components/header'
+import About from './components/about'
+import Talents from './components/talents'
+import Projects from './components/projects'
+import Footer from './components/footer'
+
+import Box from '@material-ui/core/Box'
+import makeStyles from '@material-ui/styles/makeStyles'
+
+const useStyles = makeStyles(theme => ({
+  splitter: {
+    height: "10px"
+  }
+}))
 
 function App() {
+  const classes = useStyles()
+  const splitter = <div className={classes.splitter} />
+
+  document.getElementsByTagName("body")[0].style.backgroundColor = "#121212"
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box display="flex" flexDirection="column" alignItems="center" py={2}>
+      <Box maxWidth="1000px">
+        {splitter}
+        <Header />
+        {splitter}
+        <About />
+        {splitter}
+        <Talents />
+        {splitter}
+        <Projects />
+        <Footer />
+      </Box>
+    </Box>
   );
 }
 
