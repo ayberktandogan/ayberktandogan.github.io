@@ -43,11 +43,12 @@ export default function Talents() {
                 <Box>
                     <Typography variant="h2" gutterBottom color="inherit">Yetkinlikler</Typography>
                     <div className={classes.container}>
-                        <Typography variant="h4" gutterBottom color="inherit">Program</Typography>
+                        <Typography variant="h4" gutterBottom color="inherit">Paket Program</Typography>
                         <div className={classes.list}>
                             <Chip variant="outlined" label="Microsoft Office" />
                             <Chip variant="outlined" label="Adobe After Effects" />
                             <Chip variant="outlined" label="Adobe Photoshop" />
+                            <Chip variant="outlined" label="MATLAB" />
                         </div>
                         {splitter}
                         <Typography variant="h4" gutterBottom color="inherit">Yazılım</Typography>
