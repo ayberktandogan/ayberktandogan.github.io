@@ -2,13 +2,18 @@ import React from 'react'
 
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
-import Chip from '@material-ui/core/Chip'
+import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography'
 import makeStyles from '@material-ui/styles/makeStyles'
 
+
+import { talentsBg } from '../config/assets'
+
 const useStyles = makeStyles(theme => ({
     container: {
-        textAlign: "center"
+        display: 'flex',
+        justifyContent: 'center',
+        width: "100%"
     },
     list: {
         display: 'flex',
@@ -28,6 +33,33 @@ const useStyles = makeStyles(theme => ({
     },
     splitter: {
         height: "20px"
+    },
+    listItemContainer: {
+        width: "140px",
+        display: "flex",
+        justifyContent: "center",
+        filter: "saturate(0%)",
+        transition: theme.transitions.create(
+            ["filter"],
+            { duration: theme.transitions.duration.short }
+        ),
+        "&:hover": {
+            filter: "saturate(100%)"
+        }
+    },
+    listItem: {
+        background: `url("${talentsBg}")`,
+        height: "64px",
+        overflow: "hidden",
+        margin: "10px 0",
+        "& p": {
+            display: "none"
+        }
+    },
+    tooltip: {
+        fontSize: theme.typography.pxToRem(16),
+        backgroundColor: "#000",
+        border: '1px solid #000'
     }
 }))
 
@@ -35,40 +67,87 @@ const useStyles = makeStyles(theme => ({
 export default function Talents() {
     const classes = useStyles()
 
-    const splitter = <div className={classes.splitter} />
+    const talentsList = [
+        {
+            name: "NodeJS",
+            sizex: "102px",
+            position: "0 0"
+        },
+        {
+            name: "ReactJS",
+            sizex: "71px",
+            position: "-102px 0"
+        },
+        {
+            name: "Javascript",
+            sizex: "64px",
+            position: "-173px 0"
+        },
+        {
+            name: "Material-UI",
+            sizex: "81px",
+            position: "-237px 0"
+        },
+        {
+            name: "Bootstrap",
+            sizex: "64px",
+            position: "-318px 0"
+        },
+        {
+            name: "HTML",
+            sizex: "57px",
+            position: "-382px 0"
+        },
+        {
+            name: "CSS",
+            sizex: "57px",
+            position: "-439px 0"
+        },
+        {
+            name: "jQuery",
+            sizex: "62px",
+            position: "-496px 0"
+        },
+        {
+            name: "MongoDB",
+            sizex: "67px",
+            position: "-558px 0"
+        },
+        {
+            name: "MySQL",
+            sizex: "119px",
+            position: "-625px 0"
+        },
+        {
+            name: "MariaDB",
+            sizex: "64px",
+            position: "-744px 0"
+        },
+        {
+            name: "React Native",
+            sizex: "71px",
+            position: "-872px 0"
+        }
+    ]
+
+    function Talent({ name, sizex, position }) {
+        return (
+            <Tooltip title={name} placement="top" classes={{ tooltip: classes.tooltip }}>
+                <Box className={classes.listItemContainer}>
+                    <div className={classes.listItem} style={{ backgroundPosition: position, width: sizex }}>
+                        <p>{name}</p>
+                    </div>
+                </Box>
+            </Tooltip>
+        )
+    }
 
     return (
         <section className={classes.section}>
             <Grid item xs={12}>
-                <Box>
+                <Box display="flex" flexWrap="wrap" justifyContent="space-between">
                     <Typography variant="h2" gutterBottom color="inherit">Yetkinlikler</Typography>
-                    <div className={classes.container}>
-                        <Typography variant="h4" gutterBottom color="inherit">Paket Program</Typography>
-                        <div className={classes.list}>
-                            <Chip variant="outlined" label="Microsoft Office" />
-                            <Chip variant="outlined" label="Adobe After Effects" />
-                            <Chip variant="outlined" label="Adobe Photoshop" />
-                            <Chip variant="outlined" label="MATLAB" />
-                        </div>
-                        {splitter}
-                        <Typography variant="h4" gutterBottom color="inherit">Yazılım</Typography>
-                        <div className={classes.list}>
-                            <Chip variant="outlined" label="Node" color="secondary" />
-                            <Chip variant="outlined" label="React" color="secondary" />
-                            <Chip variant="outlined" label="MaterialUI" />
-                            <Chip variant="outlined" label="Bootstrap" />
-                            <Chip variant="outlined" label="Javascript" />
-                            <Chip variant="outlined" label="HTML" />
-                            <Chip variant="outlined" label="CSS" />
-                            <Chip variant="outlined" label="jQuery" />
-                            <Chip variant="outlined" label="ExpressJS" />
-                            <Chip variant="outlined" label="MongoDB" />
-                            <Chip variant="outlined" label="MySQL" />
-                            <Chip variant="outlined" label="MariaDB" />
-                            <Chip variant="outlined" label="Git" />
-                            <Chip variant="outlined" label="Github" />
-                        </div>
-                    </div>
+                    {talentsList.map(t => <Talent key={t.name.trim().toLowerCase()} {...t} />)}
                 </Box>
             </Grid>
         </section>

@@ -89,6 +89,6 @@ const transitions = {
     }
 }
 
-const data = { palette, typography, overrides, transitions, props }
+const data = { palette, typography, overrides, transitions, props, themeName: "ayberktandogan.github.io" }
 
 export default createMuiTheme({ ...data })

@@ -35,8 +35,51 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+function ProjectBox({ name, techs, description, link, classes }) {
+    return (
+        <Grid item xs={12} md={6}>
+            <a href={link} target="_blank" rel="noopener noreferrer" className={classes.link}>
+                <Card className={classes.card}>
+                    <CardContent>
+                        <Typography className={classes.title} color="inherit" gutterBottom>
+                            {techs}
+                        </Typography>
+                        <Typography gutterBottom variant="h4" color="inherit">
+                            {name}
+                        </Typography>
+                        <Typography variant="body2" color="inherit" component="p">
+                            {description}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </a>
+        </Grid>
+    )
+}
+
 export default function Projects() {
-    const classes = useStyles();
+    const classes = useStyles()
+
+    const projectList = [
+        {
+            name: "ForFansubs Client",
+            techs: "React & MaterialUI",
+            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin front-end'i.",
+            link: "https://github.com/ForFansubs/front-end"
+        },
+        {
+            name: "ForFansubs Admin",
+            techs: "React & MaterialUI",
+            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin admin paneli.",
+            link: "https://github.com/ForFansubs/front-end-admin"
+        },
+        {
+            name: "ForFansubs Back-end",
+            techs: "Node & Express & MariaDB",
+            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin servisi.",
+            link: "https://github.com/ForFansubs/node-server"
+        }
+    ]
 
     return (
         <section className={classes.section}>
@@ -44,60 +87,11 @@ export default function Projects() {
                 <Box>
                     <Typography variant="h2" gutterBottom color="inherit">Projelerim</Typography>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} md={6}>
-                            <a href="https://github.com/ayberktandogan/ForFansubs-ReactApp---Front-end" target="_blank" rel="noopener noreferrer" className={classes.link}>
-                                <Card className={classes.card}>
-                                    <CardContent>
-                                        <Typography className={classes.title} color="inherit" gutterBottom>
-                                            React & MaterialUI
-                                    </Typography>
-                                        <Typography gutterBottom variant="h4" color="inherit">
-                                            ForFansubs Client
-                                    </Typography>
-                                        <Typography variant="body2" color="inherit" component="p">
-                                            Anime & Manga çeviri grupları için yazılmış, içerik sisteminin front-end'i.
-                                    </Typography>
-                                    </CardContent>
-                                </Card>
-                            </a>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <a href="https://github.com/ayberktandogan/ForFansubs-ReactApp-Admin---Front-end" target="_blank" rel="noopener noreferrer" className={classes.link}>
-                                <Card className={classes.card}>
-                                    <CardContent>
-                                        <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                            React & MaterialUI
-                            </Typography>
-                                        <Typography gutterBottom variant="h4">
-                                            ForFansubs Admin
-                            </Typography>
-                                        <Typography variant="body2" component="p">
-                                            Anime & Manga çeviri grupları için yazılmış, içerik sisteminin admin paneli.
-                            </Typography>
-                                    </CardContent>
-                                </Card>
-                            </a>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <a href="https://github.com/ayberktandogan/ForFansubs-NodeApp---Back-End" target="_blank" rel="noopener noreferrer" className={classes.link}>
-                                <Card className={classes.card}>
-                                    <CardContent>
-                                        <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                            Node & Express & MariaDB
-                                        </Typography>
-                                        <Typography gutterBottom variant="h4">
-                                            ForFansubs Back-end
-                                        </Typography>
-                                        <Typography variant="body2" component="p">
-                                            Anime & Manga çeviri grupları için yazılmış, içerik sisteminin servisi.
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                            </a>
-                        </Grid>
+                        {projectList.map(p => <ProjectBox {...p} classes={classes} />)}
                     </Grid>
+
                 </Box>
             </Grid>
-        </section>
+        </section >
     )
 }
