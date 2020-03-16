@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box'
 import makeStyles from '@material-ui/styles/makeStyles'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedinIn, faGithub, faStackOverflow } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedinIn, faGithub, faStackOverflow, faFreeCodeCamp } from '@fortawesome/free-brands-svg-icons'
 
 const useStyles = makeStyles(theme => ({
     icon: {
@@ -47,6 +47,10 @@ export default function Footer() {
             <BigDot classes={classes} />
             <a href="https://stackoverflow.com/users/13009248/ayberk-tando%C4%9Fan" target="_blank" rel="noopener noreferrer" className={classes.link}>
                 <FontAwesomeIcon className={classes.icon} icon={faStackOverflow} size="2x" />
+            </a>
+            <BigDot classes={classes} />
+            <a href="https://www.freecodecamp.org/fccf4aafbdb-141e-431e-ac44-68b4989e40fc" target="_blank" rel="noopener noreferrer" className={classes.link}>
+                <FontAwesomeIcon className={classes.icon} icon={faFreeCodeCamp} size="2x" />
             </a>
         </Box>
     )
