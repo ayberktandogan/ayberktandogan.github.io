@@ -49,7 +49,7 @@ export default function Footer() {
                 <FontAwesomeIcon className={classes.icon} icon={faStackOverflow} size="2x" />
             </a>
             <BigDot classes={classes} />
-            <a href="https://www.freecodecamp.org/fccf4aafbdb-141e-431e-ac44-68b4989e40fc" target="_blank" rel="noopener noreferrer" className={classes.link}>
+            <a href="https://www.freecodecamp.org/ayberktandogan" target="_blank" rel="noopener noreferrer" className={classes.link}>
                 <FontAwesomeIcon className={classes.icon} icon={faFreeCodeCamp} size="2x" />
             </a>
         </Box>
