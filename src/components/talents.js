@@ -12,8 +12,11 @@ import { talentsBg } from '../config/assets'
 const useStyles = makeStyles(theme => ({
     container: {
         display: 'flex',
-        justifyContent: 'center',
-        width: "100%"
+        justifyContent: "center",
+        flexWrap: 'wrap',
+        [theme.breakpoints.up('sm')]: {
+            justifyContent: "space-between"
+        }
     },
     list: {
         display: 'flex',
@@ -145,7 +148,7 @@ export default function Talents() {
     return (
         <section className={classes.section}>
             <Grid item xs={12}>
-                <Box display="flex" flexWrap="wrap" justifyContent="space-between">
+                <Box className={classes.container}>
                     <Typography variant="h2" gutterBottom color="inherit">Yetkinlikler</Typography>
                     {talentsList.map(t => <Talent key={t.name.trim().toLowerCase()} {...t} />)}
                 </Box>
