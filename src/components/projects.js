@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-function ProjectBox({ name, techs, description, link, classes }) {
+function ProjectBox({ name, techs, description, link, projectStart, projectEnd, classes }) {
     return (
         <Grid item xs={12} md={6}>
             <a href={link} target="_blank" rel="noopener noreferrer" className={classes.link}>
@@ -47,8 +47,11 @@ function ProjectBox({ name, techs, description, link, classes }) {
                         <Typography gutterBottom variant="h4" color="inherit">
                             {name}
                         </Typography>
-                        <Typography variant="body2" color="inherit" component="p">
+                        <Typography gutterBottom variant="body2" color="inherit" component="p">
                             {description}
+                        </Typography>
+                        <Typography variant="subtitle2" color="inherit" component="p">
+                            {projectStart ? projectStart : "??"} - {projectEnd ? projectEnd : "??"}
                         </Typography>
                     </CardContent>
                 </Card>
@@ -64,20 +67,23 @@ export default function Projects() {
         {
             name: "ForFansubs Client",
             techs: "React & MaterialUI",
-            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin front-end'i.",
-            link: "https://github.com/ForFansubs/front-end"
+            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin front-end'i. React ve MaterialUI kullanılarak hazırlanmıştır.",
+            link: "https://github.com/ForFansubs/front-end",
+            projectStart: "Yaz 2018"
         },
         {
             name: "ForFansubs Admin",
             techs: "React & MaterialUI",
-            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin admin paneli.",
-            link: "https://github.com/ForFansubs/front-end-admin"
+            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin yönetim paneli. React ve MaterialUI kullanılarak hazırlanmıştır.",
+            link: "https://github.com/ForFansubs/front-end-admin",
+            projectStart: "Yaz 2019"
         },
         {
             name: "ForFansubs Back-end",
             techs: "Node & Express & MariaDB",
-            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin servisi.",
-            link: "https://github.com/ForFansubs/node-server"
+            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin servisi. Express, Sequelize kullanılarak hazırlanmıştır.",
+            link: "https://github.com/ForFansubs/node-server",
+            projectStart: "Yaz 2018"
         }
     ]
 
@@ -89,7 +95,6 @@ export default function Projects() {
                     <Grid container spacing={2}>
                         {projectList.map(p => <ProjectBox {...p} classes={classes} />)}
                     </Grid>
-
                 </Box>
             </Grid>
         </section >

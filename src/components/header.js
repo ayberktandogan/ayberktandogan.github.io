@@ -30,7 +30,7 @@ export default function Header() {
         <Grid item xs={12}>
             <Box display="flex" alignItems="center" justifyContent="center">
                 <img className={classes.pp} src={pp} alt="Profile" />
-                <Typography variant="h5" component="h1" className={classes.title}>{`{`}<span className={classes.comment}>{`//Personal Info`}</span>{`\n"name": "Ayberk",\n"surname": "Tandoğan",\n"age": "22"\n}`}</Typography>
+                <Typography variant="h5" component="h1" className={classes.title}>{`{`}<span className={classes.comment}>{`//Personal Info`}</span>{`\n    "name": "Ayberk",\n    "surname": "Tandoğan",\n    "age": "23"\n}`}</Typography>
             </Box>
         </Grid>
     )

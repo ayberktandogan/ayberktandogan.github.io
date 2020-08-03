@@ -38,9 +38,12 @@ const useStyles = makeStyles(theme => ({
         height: "20px"
     },
     listItemContainer: {
-        width: "140px",
+        minWidth: 160,
         display: "flex",
+        flexWrap: "wrap",
+        flexDirection: "column",
         justifyContent: "center",
+        alignItems: "center",
         filter: "saturate(0%)",
         transition: theme.transitions.create(
             ["filter"],
@@ -54,9 +57,9 @@ const useStyles = makeStyles(theme => ({
         background: `url("${talentsBg}")`,
         height: "64px",
         overflow: "hidden",
-        margin: "10px 0",
+        margin: "5px 0",
         "& p": {
-            display: "none"
+            margin: 0
         }
     },
     tooltip: {
@@ -74,7 +77,8 @@ export default function Talents() {
         {
             name: "NodeJS",
             sizex: "102px",
-            position: "0 0"
+            position: "0 0",
+            hideText: true
         },
         {
             name: "ReactJS",
@@ -85,6 +89,11 @@ export default function Talents() {
             name: "Javascript",
             sizex: "64px",
             position: "-173px 0"
+        },
+        {
+            name: "Python",
+            sizex: "64px",
+            position: "-943px 0"
         },
         {
             name: "Material-UI",
@@ -107,6 +116,18 @@ export default function Talents() {
             position: "-439px 0"
         },
         {
+            name: "Sass",
+            sizex: "85px",
+            position: "-1007px 0",
+            hideText: true
+        },
+        {
+            name: "less",
+            sizex: "149px",
+            position: "-1092px 0",
+            hideText: true
+        },
+        {
             name: "jQuery",
             sizex: "62px",
             position: "-496px 0"
@@ -119,7 +140,8 @@ export default function Talents() {
         {
             name: "MySQL",
             sizex: "119px",
-            position: "-625px 0"
+            position: "-625px 0",
+            hideText: true
         },
         {
             name: "MariaDB",
@@ -133,13 +155,15 @@ export default function Talents() {
         }
     ]
 
-    function Talent({ name, sizex, position }) {
+    function Talent({ name, sizex, position, hideText }) {
         return (
-            <Tooltip title={name} placement="top" classes={{ tooltip: classes.tooltip }}>
+            <Tooltip title={name} placement="bottom" classes={{ tooltip: classes.tooltip }} open={hideText ? false : undefined}>
                 <Box className={classes.listItemContainer}>
-                    <div className={classes.listItem} style={{ backgroundPosition: position, width: sizex }}>
-                        <p>{name}</p>
-                    </div>
+                    <div className={classes.listItem} style={{ backgroundPosition: position, width: sizex }} />
+                    {hideText ?
+                        ""
+                        :
+                        <p>{name}</p>}
                 </Box>
             </Tooltip>
         )

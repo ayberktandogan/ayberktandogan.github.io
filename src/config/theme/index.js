@@ -22,38 +22,36 @@ const props = {
 }
 
 const typography = {
+    fontFamily: "'Source Code Pro', monospace",
     h1: {
-        fontFamily: "'Source Code Pro', monospace",
         fontWeight: "bold",
         fontSize: "3.4rem",
         lineHeight: 1.2
     },
     h2: {
-        fontFamily: "'Source Code Pro', monospace",
         fontWeight: "bold",
         fontSize: "1.6rem",
         lineHeight: 1.2
     },
     h3: {
-        fontFamily: "'Source Code Pro', monospace",
         fontWeight: "bold",
         fontSize: "1.4rem",
         lineHeight: 1.2
     },
     h4: {
-        fontFamily: "'Source Code Pro', monospace",
         fontWeight: "bold",
         fontSize: "1.2rem"
     },
     h5: {
-        fontFamily: "'Source Code Pro', monospace",
         fontWeight: "bold",
         fontSize: "1rem"
     },
     h6: {
-        fontFamily: "'Source Code Pro', monospace",
         fontWeight: "bold",
         fontSize: ".8rem"
+    },
+    body1: {
+        fontFamily: "'Inconsolata', monospace"
     },
     body2: {
         fontFamily: "'Inconsolata', monospace",
@@ -63,9 +61,10 @@ const typography = {
         lineHeight: 1.6
     },
     subtitle1: {
+        fontFamily: "'Inconsolata', monospace",
         lineHeight: 1.25
     },
-    body1: {
+    subtitle2: {
         fontFamily: "'Inconsolata', monospace"
     }
 }
