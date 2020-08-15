@@ -4,6 +4,7 @@ import Header from './components/header'
 import About from './components/about'
 import Talents from './components/talents'
 import Projects from './components/projects'
+import ContactMe from './components/contact-me'
 import Footer from './components/footer'
 
 import Box from '@material-ui/core/Box'
@@ -28,7 +29,7 @@ function SectionContainer(props) {
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" py={2}>
-      <Box maxWidth={1000}>
+      <Box maxWidth={1000} width={"100%"}>
         {props.children}
       </Box>
     </Box>
@@ -56,6 +57,10 @@ function App() {
       {splitter}
       <SectionContainer>
         <Talents />
+      </SectionContainer>
+      {splitter}
+      <SectionContainer>
+        <ContactMe />
       </SectionContainer>
       {splitter}
       <SectionContainer>

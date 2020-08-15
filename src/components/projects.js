@@ -10,10 +10,11 @@ import Typography from '@material-ui/core/Typography'
 import makeStyles from '@material-ui/styles/makeStyles'
 import clsx from 'clsx'
 
-import { ProjectForFansubs } from '../config/assets'
+import { ProjectForFansubs, ProjectKargoTakip } from '../config/assets'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faGlobe, faBook } from '@fortawesome/free-solid-svg-icons'
+import { purple, red } from '@material-ui/core/colors'
 
 const useStyles = makeStyles(theme => ({
     section: {
@@ -89,6 +90,7 @@ const useStyles = makeStyles(theme => ({
         lineHeight: .77,
         [theme.breakpoints.down('sm')]: {
             marginLeft: -3,
+            lineHeight: 1.2,
         }
     },
     PaginationBox: {
@@ -106,7 +108,7 @@ const useStyles = makeStyles(theme => ({
     PaginationCircles: {
         width: 10,
         height: 10,
-        borderRadius: "50%",
+        borderRadius: 8,
         backgroundColor: theme.palette.background.paper,
         marginLeft: theme.spacing(1),
         cursor: "pointer",
@@ -116,14 +118,14 @@ const useStyles = makeStyles(theme => ({
         }),
         ['@media (hover: hover) and (pointer: fine)']: {
             '&:hover': {
-                backgroundColor: theme.palette.primary.main
+                background: props => props.accentColor
             }
         }
     },
     PaginationCirclesActive: {
         width: 30,
         borderRadius: 8,
-        backgroundColor: theme.palette.primary.main
+        backgroundColor: props => props.accentColor
     }
 }));
 
@@ -168,9 +170,6 @@ function ProjectBox({ display, name, description, githubLink, websiteLink, docsL
 }
 
 export default function Projects() {
-    const classes = useStyles()
-    const [activePage, setActivePage] = useState(0)
-
     const projectList = [
         {
             name: "ForFansubs",
@@ -181,10 +180,22 @@ export default function Projects() {
             docsLink: "https://forfansubs.github.io/docs",
             image: ProjectForFansubs,
             projectStart: "Yaz 2018",
-            accentColor: "linear-gradient(45deg, #8C366C, #6E64E7)",
+            accentColor: purple["500"],
             textColor: "#fff"
+        },
+        {
+            name: "Kargo Takip Uygulaması",
+            techs: "MERN",
+            description: "Hürriyet'te 1. zorunlu stajımı yaparken dosyam için hazırlamış olduğum Kargo Takip uygulaması.\n\nBack-end'de NodeJS & Express ve MongoDB, front-end'de React kullanarak hazırlandı. MERN stack uyumlu yazıldı.",
+            githubLink: "https://github.com/ayberktandogan/MTM2002---Project1---Kargo_Takip",
+            image: ProjectKargoTakip,
+            projectStart: "Yaz 2018",
+            accentColor: red["500"]
         }
     ]
+
+    const [activePage, setActivePage] = useState(0)
+    const classes = useStyles({ accentColor: projectList[activePage] ? projectList[activePage].accentColor : purple["500"] })
 
     function handlePreviousPage() {
         const tempActivePage = activePage

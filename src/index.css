@@ -63,18 +63,18 @@ p {
     }
     h2 {
         position: absolute;
-        top: -5px;
+        top: -15px;
         z-index: 2;
     }
 
     h2::after {
-        background: #121212;
+        background: transparent;
         content: "";
         position: absolute;
         top: 0;
-        left: -0.5em;
+        left: -0.4em;
         bottom: 0em;
-        right: -0.5em;
+        right: -0.4em;
         z-index: -1;
     }
 }
