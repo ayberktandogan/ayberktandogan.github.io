@@ -2,7 +2,6 @@ import React from 'react'
 
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
-import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography'
 import makeStyles from '@material-ui/styles/makeStyles'
 
@@ -157,15 +156,13 @@ export default function Talents() {
 
     function Talent({ name, sizex, position, hideText }) {
         return (
-            <Tooltip title={name} placement="bottom" classes={{ tooltip: classes.tooltip }} open={hideText ? false : undefined}>
-                <Box className={classes.listItemContainer}>
-                    <div className={classes.listItem} style={{ backgroundPosition: position, width: sizex }} />
-                    {hideText ?
-                        ""
-                        :
-                        <p>{name}</p>}
-                </Box>
-            </Tooltip>
+            <Box className={classes.listItemContainer}>
+                <div className={classes.listItem} style={{ backgroundPosition: position, width: sizex }} />
+                {hideText ?
+                    ""
+                    :
+                    <p>{name}</p>}
+            </Box>
         )
     }
 

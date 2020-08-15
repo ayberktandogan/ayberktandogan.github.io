@@ -15,26 +15,54 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+function SectionContainer(props) {
+  if (props.noSpecialStyle) {
+    return (
+      <Box>
+        <Box>
+          {props.children}
+        </Box>
+      </Box>
+    )
+  }
+
+  return (
+    <Box display="flex" flexDirection="column" alignItems="center" py={2}>
+      <Box maxWidth={1000}>
+        {props.children}
+      </Box>
+    </Box>
+  )
+}
+
 function App() {
   const classes = useStyles()
   const splitter = <div className={classes.splitter} />
 
-  document.getElementsByTagName("body")[0].style.backgroundColor = "#121212"
-
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" py={2}>
-      <Box maxWidth="1000px">
-        {splitter}
+    <>
+      {splitter}
+      <SectionContainer>
         <Header />
-        {splitter}
+      </SectionContainer>
+      {splitter}
+      <SectionContainer>
         <About />
-        {splitter}
-        <Talents />
-        {splitter}
+      </SectionContainer>
+      {splitter}
+      <SectionContainer noSpecialStyle>
         <Projects />
+      </SectionContainer>
+      {splitter}
+      <SectionContainer>
+        <Talents />
+      </SectionContainer>
+      {splitter}
+      <SectionContainer>
         <Footer />
-      </Box>
-    </Box>
+      </SectionContainer>
+      {splitter}
+    </>
   );
 }
 

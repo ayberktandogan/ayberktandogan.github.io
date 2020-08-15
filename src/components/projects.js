@@ -1,27 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
-import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
+import Divider from '@material-ui/core/Divider'
+import Fade from '@material-ui/core/Fade'
 import Typography from '@material-ui/core/Typography'
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import makeStyles from '@material-ui/styles/makeStyles'
+import clsx from 'clsx'
+
+import { ProjectForFansubs } from '../config/assets'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faGlobe, faBook } from '@fortawesome/free-solid-svg-icons'
 
 const useStyles = makeStyles(theme => ({
     section: {
-        outlineColor: "#ff5fa2",
-        color: "#ff5fa2"
+        outlineColor: "transparent",
+        color: "#ff5fa2",
+        outline: 0,
+        [theme.breakpoints.down('sm')]: {
+            outlineColor: "#ff5fa2",
+            color: "#ff5fa2",
+            outline: "1px solid",
+        }
     },
     card: {
-        backgroundColor: theme.palette.background.level1,
-        transition: theme.transitions.create(['background-color', 'color'], {
-            easing: theme.transitions.easing.sharp,
-            duration: "100ms",
-        }),
-        "&:hover": {
-            backgroundColor: theme.palette.background.level2,
-            color: "white"
-        },
+        backgroundColor: props => props.accentColor || theme.palette.background.level1,
+        maxWidth: 400
     },
     title: {
         fontSize: 14,
@@ -32,71 +39,230 @@ const useStyles = makeStyles(theme => ({
     link: {
         textDecoration: "none",
         color: "inherit"
+    },
+    MainBox: {
+        position: "relative",
+        overflow: "hidden"
+    },
+    GridBox: {
+        backgroundColor: props => props.accentColor || theme.palette.background.default,
+    },
+    ImageBox: {
+        padding: theme.spacing(8),
+        textAlign: "center",
+        alignSelf: "center",
+        "& img": {
+            width: "100%",
+            height: "auto",
+            maxHeight: 400,
+            boxShadow: theme.shadows[6],
+            transition: theme.transitions.create(['box-shadow'], {
+                easing: theme.transitions.easing.sharp,
+                duration: "300ms",
+            }),
+            "&:hover": {
+                boxShadow: theme.shadows[14],
+            }
+        },
+        [theme.breakpoints.down('sm')]: {
+            padding: theme.spacing(0),
+            paddingBottom: 0,
+            "& img": {
+                boxShadow: theme.shadows[0],
+                "&:hover": {
+                    boxShadow: theme.shadows[0],
+                }
+            },
+        }
+    },
+    InformationBox: {
+        padding: theme.spacing(8),
+        whiteSpace: "pre-wrap",
+        alignSelf: "center",
+        color: props => props.textColor || "inherit",
+        textDecoration: "none",
+        "& .MuiDivider-root": {
+            margin: `${theme.spacing(2)}px 0`
+        },
+        "& .MuiButton-root": {
+            margin: `0 ${theme.spacing(2)}px 0 0`
+        },
+        [theme.breakpoints.down('sm')]: {
+            padding: theme.spacing(4),
+        }
+    },
+    PaginationBox: {
+        display: "flex",
+        justifyContent: "space-between",
+        "& .MuiButton-root": {
+            margin: `${theme.spacing(2)}px ${theme.spacing(2)}px 0 0`
+        }
+    },
+    PaginationCirclesBox: {
+        display: "flex",
+        zIndex: 2,
+        alignItems: "center"
+    },
+    PaginationCircles: {
+        width: 10,
+        height: 10,
+        borderRadius: "50%",
+        backgroundColor: theme.palette.background.paper,
+        marginLeft: theme.spacing(1),
+        cursor: "pointer",
+        transition: theme.transitions.create(['width', 'background-color'], {
+            easing: theme.transitions.easing.sharp,
+            duration: "200ms",
+        }),
+        ['@media (hover: hover) and (pointer: fine)']: {
+            '&:hover': {
+                backgroundColor: theme.palette.primary.main
+            }
+        }
+    },
+    PaginationCirclesActive: {
+        width: 30,
+        borderRadius: 8,
+        backgroundColor: theme.palette.primary.main
     }
 }));
 
-function ProjectBox({ name, techs, description, link, projectStart, projectEnd, classes }) {
+const TransitionDuration = 200
+
+function ProjectBox({ display, name, description, githubLink, websiteLink, docsLink, image, accentColor, textColor }) {
+    const classes = useStyles({ accentColor, textColor })
+
     return (
-        <Grid item xs={12} md={6}>
-            <a href={link} target="_blank" rel="noopener noreferrer" className={classes.link}>
-                <Card className={classes.card}>
-                    <CardContent>
-                        <Typography className={classes.title} color="inherit" gutterBottom>
-                            {techs}
-                        </Typography>
-                        <Typography gutterBottom variant="h4" color="inherit">
-                            {name}
-                        </Typography>
-                        <Typography gutterBottom variant="body2" color="inherit" component="p">
-                            {description}
-                        </Typography>
-                        <Typography variant="subtitle2" color="inherit" component="p">
-                            {projectStart ? projectStart : "??"} - {projectEnd ? projectEnd : "??"}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </a>
-        </Grid>
+        <Fade in={display} timeout={{ enter: TransitionDuration, exit: TransitionDuration }} mountOnEnter unmountOnExit>
+            <Grid container justify="center" className={classes.GridBox}>
+                <Grid item xs={12} sm={12} md={6} className={classes.ImageBox}>
+                    <img src={image} alt="" />
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} className={classes.InformationBox}>
+                    <Typography variant="h1" component="h3" gutterBottom style={{ marginLeft: -5.2, lineHeight: .77 }}>
+                        {name}
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        {description}
+                    </Typography>
+                    <Divider />
+                    {githubLink ?
+                        <Button href={githubLink} variant="outlined" target="_blank">
+                            <FontAwesomeIcon icon={faGithub} size="1x" /> Github
+                        </Button>
+                        : ""}
+                    {websiteLink ?
+                        <Button href={websiteLink} variant="outlined" target="_blank">
+                            <FontAwesomeIcon icon={faGlobe} size="1x" /> SİTE
+                        </Button>
+                        : ""}
+                    {docsLink ?
+                        <Button href={docsLink} variant="outlined" target="_blank">
+                            <FontAwesomeIcon icon={faBook} size="1x" /> Dökümanlar
+                        </Button>
+                        : ""}
+                </Grid>
+            </Grid>
+        </Fade>
     )
 }
 
 export default function Projects() {
     const classes = useStyles()
+    const [activePage, setActivePage] = useState(0)
 
     const projectList = [
         {
-            name: "ForFansubs Client",
-            techs: "React & MaterialUI",
-            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin front-end'i. React ve MaterialUI kullanılarak hazırlanmıştır.",
-            link: "https://github.com/ForFansubs/front-end",
-            projectStart: "Yaz 2018"
-        },
-        {
-            name: "ForFansubs Admin",
-            techs: "React & MaterialUI",
-            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin yönetim paneli. React ve MaterialUI kullanılarak hazırlanmıştır.",
-            link: "https://github.com/ForFansubs/front-end-admin",
-            projectStart: "Yaz 2019"
-        },
-        {
-            name: "ForFansubs Back-end",
-            techs: "Node & Express & MariaDB",
-            description: "Anime & Manga çeviri grupları için yazılmış, içerik sisteminin servisi. Express, Sequelize kullanılarak hazırlanmıştır.",
-            link: "https://github.com/ForFansubs/node-server",
-            projectStart: "Yaz 2018"
+            name: "ForFansubs",
+            techs: "NodeJS & React & MaterialUI",
+            description: "Anime & Manga çeviri toplulukları için yazılmış uygulama topluluğu. İşlerini saklayabilecekleri bir veritabanı olması yanında, bu işleri izleyicilerine de sunabilecekleri bir uygulamadır.\n\nBack-end'i NodeJS ve Express, front-end ve yönetim paneli React ve MaterialUI kullanılarak hazırlanmıştır.\n\nDetaylar için aşağıdaki linkleri kullanabilirsiniz.",
+            githubLink: "https://github.com/ForFansubs",
+            websiteLink: "https://forfansubs.github.io",
+            docsLink: "https://forfansubs.github.io/docs",
+            image: ProjectForFansubs,
+            projectStart: "Yaz 2018",
+            accentColor: "hsla(262, 47%, 55%, 1)",
+            textColor: "#fff"
         }
     ]
 
+    function handlePreviousPage() {
+        const tempActivePage = activePage
+
+        setActivePage(null)
+        setTimeout(() => {
+            if (activePage - 1 < 0) {
+                return setActivePage(projectList.length - 1)
+            }
+            return setActivePage(tempActivePage - 1)
+        }, TransitionDuration)
+    }
+
+    function handleNextPage() {
+        const tempActivePage = activePage
+
+        setActivePage(null)
+        setTimeout(() => {
+            if (activePage + 1 >= projectList.length) {
+                return setActivePage(0)
+            }
+            return setActivePage(tempActivePage + 1)
+        }, TransitionDuration)
+    }
+
+    function handlePaginationClick(i) {
+        setActivePage(null)
+        setTimeout(() => {
+            setActivePage(i)
+        }, TransitionDuration)
+    }
+
     return (
         <section className={classes.section}>
-            <Grid item xs={12}>
-                <Box>
-                    <Typography variant="h2" gutterBottom color="inherit">Projelerim</Typography>
-                    <Grid container spacing={2}>
-                        {projectList.map(p => <ProjectBox {...p} classes={classes} />)}
-                    </Grid>
-                </Box>
-            </Grid>
+            <Box>
+                <Typography variant="h2" gutterBottom color="inherit">Projelerim</Typography>
+                <div className={classes.MainBox}>
+                    {projectList.map((p, i) => <ProjectBox {...p} key={i} display={i === activePage} />)}
+                </div>
+            </Box>
+            {projectList.length > 1 ?
+                <>
+                    <div className={classes.PaginationBox}>
+                        <div>
+                            <Button onClick={handlePreviousPage}>
+                                ÖNCEKİ
+                            </Button>
+                            <Button onClick={handleNextPage}>
+                                SONRAKİ
+                            </Button>
+                        </div>
+                        <Box className={classes.PaginationCirclesBox}>
+                            {projectList.map((c, i) => (
+                                <div key={i + "featured"} onClick={() => handlePaginationClick(i)}>
+                                    <div className={clsx(classes.PaginationCircles, {
+                                        [classes.PaginationCirclesActive]: i === activePage
+                                    })} />
+                                </div>
+                            ))}
+                        </Box>
+                    </div>
+                </>
+                : ""}
         </section >
     )
+}
+
+ProjectBox.propTypes = {
+    display: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+    techs: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    githubLink: PropTypes.string,
+    websiteLink: PropTypes.string,
+    docsLink: PropTypes.string,
+    image: PropTypes.string.isRequired,
+    projectStart: PropTypes.string,
+    projectEnd: PropTypes.string,
+    accentColor: PropTypes.string,
+    textColor: PropTypes.string,
 }

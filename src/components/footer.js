@@ -5,7 +5,6 @@ import makeStyles from '@material-ui/styles/makeStyles'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedinIn, faGithub, faStackOverflow, faFreeCodeCamp } from '@fortawesome/free-brands-svg-icons'
-import { codecademy } from '../config/assets'
 
 const useStyles = makeStyles(theme => ({
     icon: {
@@ -45,10 +44,6 @@ const useStyles = makeStyles(theme => ({
 
 function BigDot({ classes }) {
     return <span className={classes.dot}>•</span>
-}
-
-function SmallDot({ classes }) {
-    return <span className={classes.smalldot}>•</span>
 }
 
 export default function Footer() {

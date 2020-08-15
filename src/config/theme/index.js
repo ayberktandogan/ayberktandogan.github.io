@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 const palette = {
     primary: { main: '#212121' },
@@ -90,4 +90,4 @@ const transitions = {
 
 const data = { palette, typography, overrides, transitions, props, themeName: "ayberktandogan.github.io" }
 
-export default createMuiTheme({ ...data })
+export default responsiveFontSizes(createMuiTheme({ ...data }))
