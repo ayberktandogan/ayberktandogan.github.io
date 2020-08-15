@@ -169,8 +169,8 @@ export default function Talents() {
     return (
         <section className={classes.section}>
             <Grid item xs={12}>
+                <Typography variant="h2" gutterBottom color="inherit">Yetkinlikler</Typography>
                 <Box className={classes.container}>
-                    <Typography variant="h2" gutterBottom color="inherit">Yetkinlikler</Typography>
                     {talentsList.map(t => <Talent key={t.name.trim().toLowerCase()} {...t} />)}
                 </Box>
             </Grid>

@@ -54,6 +54,29 @@ p {
 }
 
 @media (max-width: 600px) {
+    section {
+        outline: 1px solid;
+        outline-offset: -10px;
+        padding: 20px;
+        position: relative;
+        box-sizing: border-box;
+    }
+    h2 {
+        position: absolute;
+        top: -5px;
+        z-index: 2;
+    }
+
+    h2::after {
+        background: #121212;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -0.5em;
+        bottom: 0em;
+        right: -0.5em;
+        z-index: -1;
+    }
 }
 
 .fade-in {

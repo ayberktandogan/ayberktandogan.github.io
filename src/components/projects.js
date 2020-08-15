@@ -24,28 +24,18 @@ const useStyles = makeStyles(theme => ({
             outlineColor: "#ff5fa2",
             color: "#ff5fa2",
             outline: "1px solid",
+        },
+        [theme.breakpoints.down('sm')]: {
+            padding: 10
         }
-    },
-    card: {
-        backgroundColor: props => props.accentColor || theme.palette.background.level1,
-        maxWidth: 400
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-    link: {
-        textDecoration: "none",
-        color: "inherit"
     },
     MainBox: {
         position: "relative",
-        overflow: "hidden"
+        overflow: "hidden",
+        boxShadow: theme.shadows[6]
     },
     GridBox: {
-        backgroundColor: props => props.accentColor || theme.palette.background.default,
+        background: props => props.accentColor || theme.palette.background.default,
     },
     ImageBox: {
         padding: theme.spacing(8),
@@ -79,16 +69,26 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(8),
         whiteSpace: "pre-wrap",
         alignSelf: "center",
-        color: props => props.textColor || "inherit",
+        color: props => props.textColor ? props.textColor : props.accentColor ? theme.palette.getContrastText(props.accentColor) : "inherit",
         textDecoration: "none",
         "& .MuiDivider-root": {
             margin: `${theme.spacing(2)}px 0`
         },
         "& .MuiButton-root": {
-            margin: `0 ${theme.spacing(2)}px 0 0`
+            margin: `0 ${theme.spacing(2)}px 0 0`,
+            [theme.breakpoints.down('sm')]: {
+                margin: `0 ${theme.spacing(1)}px ${theme.spacing(1)}px 0`,
+            }
         },
         [theme.breakpoints.down('sm')]: {
-            padding: theme.spacing(4),
+            padding: theme.spacing(2),
+        }
+    },
+    HeaderText: {
+        marginLeft: -5.2,
+        lineHeight: .77,
+        [theme.breakpoints.down('sm')]: {
+            marginLeft: -3,
         }
     },
     PaginationBox: {
@@ -139,7 +139,7 @@ function ProjectBox({ display, name, description, githubLink, websiteLink, docsL
                     <img src={image} alt="" />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} className={classes.InformationBox}>
-                    <Typography variant="h1" component="h3" gutterBottom style={{ marginLeft: -5.2, lineHeight: .77 }}>
+                    <Typography variant="h1" component="h3" gutterBottom className={classes.HeaderText}>
                         {name}
                     </Typography>
                     <Typography variant="body1" component="p">
@@ -181,7 +181,7 @@ export default function Projects() {
             docsLink: "https://forfansubs.github.io/docs",
             image: ProjectForFansubs,
             projectStart: "Yaz 2018",
-            accentColor: "hsla(262, 47%, 55%, 1)",
+            accentColor: "linear-gradient(45deg, #8C366C, #6E64E7)",
             textColor: "#fff"
         }
     ]
@@ -264,5 +264,5 @@ ProjectBox.propTypes = {
     projectStart: PropTypes.string,
     projectEnd: PropTypes.string,
     accentColor: PropTypes.string,
-    textColor: PropTypes.string,
+    textColor: PropTypes.string
 }
