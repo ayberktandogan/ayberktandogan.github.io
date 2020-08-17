@@ -17,7 +17,7 @@ import { faGlobe, faBook } from '@fortawesome/free-solid-svg-icons'
 import { purple, red } from '@material-ui/core/colors'
 
 const useStyles = makeStyles(theme => ({
-    section: {
+    SectionBox: {
         outlineColor: "transparent",
         color: "#ff5fa2",
         outline: 0,
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
             outline: "1px solid",
         },
         [theme.breakpoints.down('sm')]: {
-            padding: 10
+            padding: 20
         }
     },
     MainBox: {
@@ -91,6 +91,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]: {
             marginLeft: -3,
             lineHeight: 1.2,
+            top: -15
         }
     },
     PaginationBox: {
@@ -229,7 +230,7 @@ export default function Projects() {
     }
 
     return (
-        <section className={classes.section}>
+        <section className={classes.SectionBox}>
             <Box>
                 <Typography variant="h2" gutterBottom color="inherit">Projelerim</Typography>
                 <div className={classes.MainBox}>

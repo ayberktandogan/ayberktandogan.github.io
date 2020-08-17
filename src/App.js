@@ -55,7 +55,7 @@ function App() {
         <Projects />
       </SectionContainer>
       {splitter}
-      <SectionContainer>
+      <SectionContainer noSpecialStyle>
         <Talents />
       </SectionContainer>
       {splitter}

@@ -1,55 +1,63 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import makeStyles from '@material-ui/styles/makeStyles'
 
-
 import { talentsBg } from '../config/assets'
+import { blue, pink, red } from '@material-ui/core/colors'
 
 const useStyles = makeStyles(theme => ({
-    container: {
-        display: 'flex',
-        justifyContent: "center",
-        flexWrap: 'wrap',
-        [theme.breakpoints.up('sm')]: {
-            justifyContent: "space-between"
-        }
-    },
-    list: {
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        '& > *': {
-            margin: theme.spacing(0.5),
-            color: "#62DAB4"
-        },
-        '& span': {
-            fontWeight: "initial"
-        }
-    },
-    section: {
+    SectionBox: {
+        outline: "none",
         outlineColor: "#62DAB4",
-        color: "#62DAB4"
+        color: "#62DAB4",
+        [theme.breakpoints.down('sm')]: {
+            padding: 20
+        }
     },
-    splitter: {
-        height: "20px"
+    MainBox: {
+        color: "white",
+        boxShadow: theme.shadows[6]
     },
-    listItemContainer: {
-        minWidth: 160,
+    HeaderText: {
+        lineHeight: .77,
+        [theme.breakpoints.down('sm')]: {
+            lineHeight: 1.2,
+            top: -15
+        }
+    },
+    InnerBox: {
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center"
+    },
+    LanguageBox: {
+        backgroundColor: red["400"],
+        padding: theme.spacing(4),
+        height: "100%"
+    },
+    FrameworkBox: {
+        backgroundColor: blue["500"],
+        padding: theme.spacing(4),
+        height: "100%"
+    },
+    BackEndBox: {
+        backgroundColor: pink["500"],
+        padding: theme.spacing(4),
+        height: "100%"
+    },
+    ListItemBox: {
+        minWidth: 100,
         display: "flex",
         flexWrap: "wrap",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        filter: "saturate(0%)",
-        transition: theme.transitions.create(
-            ["filter"],
-            { duration: theme.transitions.duration.short }
-        ),
-        "&:hover": {
-            filter: "saturate(100%)"
+        margin: theme.spacing(1),
+        '& div': {
+            filter: props => props.noInvert ? "" : "brightness(0) invert(1)",
         }
     },
     listItem: {
@@ -68,68 +76,29 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
+function Talent({ name, sizex, position, hideText, noInvert }) {
+    const classes = useStyles({ noInvert })
+
+    return (
+        <Box className={classes.ListItemBox}>
+            <div className={classes.listItem} style={{ backgroundPosition: position, width: sizex }} />
+            {hideText ?
+                ""
+                :
+                <p>{name}</p>}
+        </Box>
+    )
+}
 
 export default function Talents() {
     const classes = useStyles()
 
-    const talentsList = [
+    let backEndList = [
         {
             name: "NodeJS",
             sizex: "102px",
             position: "0 0",
             hideText: true
-        },
-        {
-            name: "ReactJS",
-            sizex: "71px",
-            position: "-102px 0"
-        },
-        {
-            name: "Javascript",
-            sizex: "64px",
-            position: "-173px 0"
-        },
-        {
-            name: "Python",
-            sizex: "64px",
-            position: "-943px 0"
-        },
-        {
-            name: "Material-UI",
-            sizex: "81px",
-            position: "-237px 0"
-        },
-        {
-            name: "Bootstrap",
-            sizex: "64px",
-            position: "-318px 0"
-        },
-        {
-            name: "HTML",
-            sizex: "57px",
-            position: "-382px 0"
-        },
-        {
-            name: "CSS",
-            sizex: "57px",
-            position: "-439px 0"
-        },
-        {
-            name: "Sass",
-            sizex: "85px",
-            position: "-1007px 0",
-            hideText: true
-        },
-        {
-            name: "less",
-            sizex: "149px",
-            position: "-1092px 0",
-            hideText: true
-        },
-        {
-            name: "jQuery",
-            sizex: "62px",
-            position: "-496px 0"
         },
         {
             name: "MongoDB",
@@ -146,33 +115,105 @@ export default function Talents() {
             name: "MariaDB",
             sizex: "64px",
             position: "-744px 0"
+        }
+    ]
+
+    let languageList = [
+        {
+            name: "Javascript",
+            sizex: "64px",
+            position: "-173px 0"
+        },
+        {
+            name: "Python",
+            sizex: "64px",
+            position: "-943px 0"
+        },
+        {
+            name: "HTML",
+            sizex: "57px",
+            position: "-382px 0"
+        },
+        {
+            name: "CSS",
+            sizex: "57px",
+            position: "-439px 0"
+        },
+        {
+            name: "Sass",
+            sizex: "85px",
+            position: "-1007px 0",
+            hideText: true
+        }
+    ]
+
+    let frameworkList = [
+        {
+            name: "ReactJS",
+            sizex: "71px",
+            position: "-102px 0"
+        },
+        {
+            name: "Material-UI",
+            sizex: "81px",
+            position: "-237px 0"
+        },
+        {
+            name: "Bootstrap",
+            sizex: "64px",
+            position: "-318px 0"
+        },
+        {
+            name: "jQuery",
+            sizex: "62px",
+            position: "-496px 0"
         },
         {
             name: "React Native",
             sizex: "71px",
-            position: "-872px 0"
+            position: "-102px 0"
+        },
+        {
+            name: "less",
+            sizex: "149px",
+            position: "-1092px 0",
+            hideText: true
         }
     ]
 
-    function Talent({ name, sizex, position, hideText }) {
-        return (
-            <Box className={classes.listItemContainer}>
-                <div className={classes.listItem} style={{ backgroundPosition: position, width: sizex }} />
-                {hideText ?
-                    ""
-                    :
-                    <p>{name}</p>}
-            </Box>
-        )
-    }
-
     return (
-        <section className={classes.section}>
+        <section className={classes.SectionBox}>
             <Grid item xs={12}>
-                <Typography variant="h2" gutterBottom color="inherit">Yetkinlikler</Typography>
-                <Box className={classes.container}>
-                    {talentsList.map(t => <Talent key={t.name.trim().toLowerCase()} {...t} />)}
-                </Box>
+                <Typography variant="h2" gutterBottom color="inherit" className={classes.HeaderText}>Yetkinlikler</Typography>
+                <div className={classes.MainBox}>
+                    <Grid container>
+                        <Grid item xs={12} sm={12} md={4} lg={4}>
+                            <div className={classes.LanguageBox}>
+                                <Typography variant="h4" gutterBottom color="inherit">Dil</Typography>
+                                <div className={classes.InnerBox}>
+                                    {languageList.map(i => <Talent key={i.name.trim().toLowerCase()} {...i} />)}
+                                </div>
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={4} lg={4}>
+                            <div className={classes.FrameworkBox}>
+                                <Typography variant="h4" gutterBottom color="inherit">Framework</Typography>
+                                <div className={classes.InnerBox}>
+                                    {frameworkList.map(i => <Talent key={i.name.trim().toLowerCase()} {...i} />)}
+                                </div>
+                            </div>
+
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={4} lg={4}>
+                            <div className={classes.BackEndBox}>
+                                <Typography variant="h4" gutterBottom color="inherit">Back-end</Typography>
+                                <div className={classes.InnerBox}>
+                                    {backEndList.map(i => <Talent key={i.name.trim().toLowerCase()} {...i} />)}
+                                </div>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </div>
             </Grid>
         </section>
     )
