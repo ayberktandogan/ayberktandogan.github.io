@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme => ({
         marginRight: `${theme.spacing(2)}px`
     },
     title: {
-        whiteSpace: "pre-wrap"
+        whiteSpace: "pre-wrap",
+        fontFamily: "'Source Code Pro', monospace"
     },
     comment: {
         color: theme.palette.grey["800"]

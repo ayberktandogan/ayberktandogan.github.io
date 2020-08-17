@@ -47,7 +47,7 @@ function App() {
         <Header />
       </SectionContainer>
       {splitter}
-      <SectionContainer>
+      <SectionContainer noSpecialStyle>
         <About />
       </SectionContainer>
       {splitter}

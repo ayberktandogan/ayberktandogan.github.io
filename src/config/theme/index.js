@@ -23,7 +23,7 @@ const props = {
 }
 
 const typography = {
-    fontFamily: "'Source Code Pro', monospace",
+    fontFamily: "Geomanist",
     h1: {
         fontWeight: "bold",
         fontSize: "3.4rem",
@@ -31,7 +31,7 @@ const typography = {
     },
     h2: {
         fontWeight: "bold",
-        fontSize: "1.6rem",
+        fontSize: "2.6rem",
         lineHeight: 1.2
     },
     h3: {
@@ -52,26 +52,25 @@ const typography = {
         fontSize: ".8rem"
     },
     body1: {
-        fontFamily: "'Inconsolata', monospace"
+        fontFamily: "'Open Sans', sans-serif"
     },
     body2: {
-        fontFamily: "'Inconsolata', monospace",
+        fontFamily: "'Open Sans', sans-serif",
         fontSize: ".8rem",
         fontWeight: "bold",
         letterSpacing: "0.0075em",
         lineHeight: 1.6
     },
     subtitle1: {
-        fontFamily: "'Inconsolata', monospace",
+        fontFamily: "'Open Sans', sans-serif",
         lineHeight: 1.25
     },
     subtitle2: {
-        fontFamily: "'Inconsolata', monospace"
+        fontFamily: "'Open Sans', sans-serif"
     }
 }
 
 const overrides = {
-    // Style sheet name ⚛️
     MuiAppBar: {
         colorPrimary: {
             backgroundColor: palette.background.level1

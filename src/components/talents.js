@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
@@ -12,21 +12,20 @@ const useStyles = makeStyles(theme => ({
     SectionBox: {
         outline: "none",
         outlineColor: "#62DAB4",
-        color: "#62DAB4",
+        color: "#fff",
         [theme.breakpoints.down('sm')]: {
             padding: 20
+        },
+        "& h2": {
+            lineHeight: .77,
+            [theme.breakpoints.down('sm')]: {
+                top: -15
+            }
         }
     },
     MainBox: {
         color: "white",
         boxShadow: theme.shadows[6]
-    },
-    HeaderText: {
-        lineHeight: .77,
-        [theme.breakpoints.down('sm')]: {
-            lineHeight: 1.2,
-            top: -15
-        }
     },
     InnerBox: {
         display: "flex",
@@ -106,15 +105,15 @@ export default function Talents() {
             position: "-558px 0"
         },
         {
+            name: "MariaDB",
+            sizex: "64px",
+            position: "-744px 0"
+        },
+        {
             name: "MySQL",
             sizex: "119px",
             position: "-625px 0",
             hideText: true
-        },
-        {
-            name: "MariaDB",
-            sizex: "64px",
-            position: "-744px 0"
         }
     ]
 
@@ -154,6 +153,16 @@ export default function Talents() {
             position: "-102px 0"
         },
         {
+            name: "jQuery",
+            sizex: "62px",
+            position: "-496px 0"
+        },
+        {
+            name: "React Native",
+            sizex: "71px",
+            position: "-102px 0"
+        },
+        {
             name: "Material-UI",
             sizex: "81px",
             position: "-237px 0"
@@ -164,14 +173,9 @@ export default function Talents() {
             position: "-318px 0"
         },
         {
-            name: "jQuery",
-            sizex: "62px",
-            position: "-496px 0"
-        },
-        {
-            name: "React Native",
-            sizex: "71px",
-            position: "-102px 0"
+            name: "MDBootstrap",
+            sizex: "92px",
+            position: "-1241px 0"
         },
         {
             name: "less",

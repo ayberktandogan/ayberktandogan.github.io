@@ -19,7 +19,7 @@ import { purple, red } from '@material-ui/core/colors'
 const useStyles = makeStyles(theme => ({
     SectionBox: {
         outlineColor: "transparent",
-        color: "#ff5fa2",
+        color: "#fff",
         outline: 0,
         [theme.breakpoints.down('sm')]: {
             outlineColor: "#ff5fa2",
@@ -28,6 +28,12 @@ const useStyles = makeStyles(theme => ({
         },
         [theme.breakpoints.down('sm')]: {
             padding: 20
+        },
+        "& h2": {
+            lineHeight: .77,
+            [theme.breakpoints.down('sm')]: {
+                top: -15
+            }
         }
     },
     MainBox: {
@@ -43,7 +49,7 @@ const useStyles = makeStyles(theme => ({
         textAlign: "center",
         alignSelf: "center",
         "& img": {
-            width: "100%",
+            maxWidth: "100%",
             height: "auto",
             maxHeight: 400,
             boxShadow: theme.shadows[6],
@@ -86,7 +92,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     HeaderText: {
-        marginLeft: -5.2,
+        marginLeft: -3,
         lineHeight: .77,
         [theme.breakpoints.down('sm')]: {
             marginLeft: -3,
@@ -117,6 +123,7 @@ const useStyles = makeStyles(theme => ({
             easing: theme.transitions.easing.sharp,
             duration: "200ms",
         }),
+        // eslint-disable-next-line
         ['@media (hover: hover) and (pointer: fine)']: {
             '&:hover': {
                 background: props => props.accentColor
