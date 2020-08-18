@@ -16,7 +16,9 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]: {
             padding: 20
         },
-        "& h2": {
+        "& h1": {
+            width: "100%",
+            textAlign: "center",
             lineHeight: .77,
             [theme.breakpoints.down('sm')]: {
                 top: -15
@@ -56,7 +58,7 @@ const useStyles = makeStyles(theme => ({
         alignItems: "center",
         margin: theme.spacing(1),
         '& div': {
-            filter: props => props.noInvert ? "" : "brightness(0) invert(1)",
+            filter: "brightness(0) invert(1)",
         }
     },
     listItem: {
@@ -188,7 +190,7 @@ export default function Talents() {
     return (
         <section className={classes.SectionBox}>
             <Grid item xs={12}>
-                <Typography variant="h2" gutterBottom color="inherit" className={classes.HeaderText}>Yetkinlikler</Typography>
+                <Typography variant="h1" gutterBottom color="inherit" className={classes.HeaderText}>Yetkinlikler</Typography>
                 <div className={classes.MainBox}>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={4} lg={4}>

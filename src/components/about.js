@@ -16,12 +16,6 @@ const useStyles = makeStyles(theme => ({
         color: "#fff",
         [theme.breakpoints.down('sm')]: {
             padding: 20
-        },
-        "& h2": {
-            lineHeight: .77,
-            [theme.breakpoints.down('sm')]: {
-                top: -15
-            }
         }
     },
     MainBox: {
@@ -44,7 +38,10 @@ const useStyles = makeStyles(theme => ({
     },
     InnerBox: {
         padding: theme.spacing(8),
-        alignSelf: "center"
+        alignSelf: "center",
+        [theme.breakpoints.down('sm')]: {
+            padding: theme.spacing(2)
+        },
     },
     AboutText: {
         whiteSpace: "pre-wrap"
@@ -59,7 +56,6 @@ export default function About() {
         <section className={classes.SectionBox}>
             <Grid item xs={12}>
                 <Box>
-                    <Typography variant="h2" gutterBottom color="inherit" className={classes.HeaderText}>Hakkımda</Typography>
                     <Grid container className={classes.MainBox}>
                         <Grid item xs={12} sm={12} md={6} className={classes.ImageBox}>
                             <img src={aboutMe} alt="" />

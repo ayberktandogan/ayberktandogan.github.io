@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import makeStyles from '@material-ui/styles/makeStyles'
 import clsx from 'clsx'
 
-import { ProjectForFansubs, ProjectKargoTakip } from '../config/assets'
+import { ProjectForFansubs, ProjectKargoTakip, ReactJSLogo, ExpressJSLogo, NodeJSLogo, MaterialUILogo, MariaDBLogo } from '../config/assets'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faGlobe, faBook } from '@fortawesome/free-solid-svg-icons'
@@ -29,7 +29,9 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]: {
             padding: 20
         },
-        "& h2": {
+        "& h1": {
+            width: "100%",
+            textAlign: "center",
             lineHeight: .77,
             [theme.breakpoints.down('sm')]: {
                 top: -15
@@ -43,6 +45,13 @@ const useStyles = makeStyles(theme => ({
     },
     GridBox: {
         background: props => props.accentColor || theme.palette.background.default,
+    },
+    TechsBox: {
+        "& img": {
+            height: 36,
+            filter: "brightness(0) invert(1)",
+            margin: `${theme.spacing(2)}px ${theme.spacing(2)}px ${theme.spacing(2)}px 0`
+        }
     },
     ImageBox: {
         padding: theme.spacing(8),
@@ -139,7 +148,7 @@ const useStyles = makeStyles(theme => ({
 
 const TransitionDuration = 200
 
-function ProjectBox({ display, name, description, githubLink, websiteLink, docsLink, image, accentColor, textColor }) {
+function ProjectBox({ display, name, description, techs, githubLink, websiteLink, docsLink, image, accentColor, textColor }) {
     const classes = useStyles({ accentColor, textColor })
 
     return (
@@ -149,6 +158,9 @@ function ProjectBox({ display, name, description, githubLink, websiteLink, docsL
                     <img src={image} alt="" />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} className={classes.InformationBox}>
+                    <div className={classes.TechsBox}>
+                        {Array.isArray(techs) ? techs.map(t => <img src={t} alt="" />) : techs}
+                    </div>
                     <Typography variant="h1" component="h3" gutterBottom className={classes.HeaderText}>
                         {name}
                     </Typography>
@@ -181,8 +193,8 @@ export default function Projects() {
     const projectList = [
         {
             name: "ForFansubs",
-            techs: "NodeJS & React & MaterialUI",
-            description: "Anime & Manga çeviri toplulukları için yazılmış uygulama topluluğu. İşlerini saklayabilecekleri bir veritabanı olması yanında, bu işleri izleyicilerine de sunabilecekleri bir uygulamadır.\n\nBack-end'i NodeJS ve Express, front-end ve yönetim paneli React ve MaterialUI kullanılarak hazırlanmıştır.\n\nDetaylar için aşağıdaki linkleri kullanabilirsiniz.",
+            techs: "",
+            description: "Anime & Manga çeviri toplulukları için yazılmış uygulama topluluğu. İşlerini saklayabilecekleri bir veritabanı olması yanında, bu işleri izleyicilerine de sunabilecekleri bir uygulamadır.\n\nBack-end'i NodeJS, Express ve MariaDB, front-end ve yönetim paneli React ve MaterialUI kullanılarak hazırlanmıştır.\n\nDetaylar için aşağıdaki linkleri kullanabilirsiniz.",
             githubLink: "https://github.com/ForFansubs",
             websiteLink: "https://forfansubs.github.io",
             docsLink: "https://forfansubs.github.io/docs",
@@ -193,7 +205,7 @@ export default function Projects() {
         },
         {
             name: "Kargo Takip Uygulaması",
-            techs: "MERN",
+            techs: "",
             description: "Hürriyet'te 1. zorunlu stajımı yaparken dosyam için hazırlamış olduğum Kargo Takip uygulaması.\n\nBack-end'de NodeJS & Express ve MongoDB, front-end'de React kullanarak hazırlandı. MERN stack uyumlu yazıldı.",
             githubLink: "https://github.com/ayberktandogan/MTM2002---Project1---Kargo_Takip",
             image: ProjectKargoTakip,
@@ -239,7 +251,7 @@ export default function Projects() {
     return (
         <section className={classes.SectionBox}>
             <Box>
-                <Typography variant="h2" gutterBottom color="inherit">Projelerim</Typography>
+                <Typography variant="h1" gutterBottom color="inherit">Projelerim</Typography>
                 <div className={classes.MainBox}>
                     {projectList.map((p, i) => <ProjectBox {...p} key={i} display={i === activePage} />)}
                 </div>
@@ -274,7 +286,7 @@ export default function Projects() {
 ProjectBox.propTypes = {
     display: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
-    techs: PropTypes.string.isRequired,
+    techs: PropTypes.array.isRequired,
     description: PropTypes.string.isRequired,
     githubLink: PropTypes.string,
     websiteLink: PropTypes.string,

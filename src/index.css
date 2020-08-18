@@ -36,26 +36,9 @@ code {
 section {
     outline: 1px solid;
     outline-offset: -45px;
-    padding: 70px;
+    padding: 40px 70px;
     position: relative;
     box-sizing: border-box;
-}
-
-h2 {
-    position: absolute;
-    top: calc(45px - 0.5em);
-    z-index: 2;
-}
-
-h2::after {
-    background: #121212;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -0.5em;
-    bottom: 0em;
-    right: -0.5em;
-    z-index: -1;
 }
 
 ul,

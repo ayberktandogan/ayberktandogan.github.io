@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Header from './components/header'
 import About from './components/about'
 import Talents from './components/talents'
 import Projects from './components/projects'
@@ -9,18 +8,13 @@ import Footer from './components/footer'
 
 import Box from '@material-ui/core/Box'
 import makeStyles from '@material-ui/styles/makeStyles'
-
-const useStyles = makeStyles(theme => ({
-  splitter: {
-    height: "10px"
-  }
-}))
+import { Divider } from '@material-ui/core';
 
 function SectionContainer(props) {
-  if (props.noSpecialStyle) {
+  if (props.withSpecialStyle) {
     return (
-      <Box>
-        <Box>
+      <Box display="flex" flexDirection="column" alignItems="center" py={2}>
+        <Box maxWidth={1000} width={"100%"}>
           {props.children}
         </Box>
       </Box>
@@ -28,8 +22,8 @@ function SectionContainer(props) {
   }
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" py={2}>
-      <Box maxWidth={1000} width={"100%"}>
+    <Box>
+      <Box>
         {props.children}
       </Box>
     </Box>
@@ -37,36 +31,27 @@ function SectionContainer(props) {
 }
 
 function App() {
-  const classes = useStyles()
-  const splitter = <div className={classes.splitter} />
 
   return (
     <>
-      {splitter}
       <SectionContainer>
-        <Header />
-      </SectionContainer>
-      {splitter}
-      <SectionContainer noSpecialStyle>
         <About />
       </SectionContainer>
-      {splitter}
-      <SectionContainer noSpecialStyle>
+      <Divider />
+      <SectionContainer>
         <Projects />
       </SectionContainer>
-      {splitter}
-      <SectionContainer noSpecialStyle>
+      <Divider />
+      <SectionContainer>
         <Talents />
       </SectionContainer>
-      {splitter}
-      <SectionContainer>
+      <Divider />
+      <SectionContainer withSpecialStyle>
         <ContactMe />
       </SectionContainer>
-      {splitter}
-      <SectionContainer>
+      <SectionContainer withSpecialStyle>
         <Footer />
       </SectionContainer>
-      {splitter}
     </>
   );
 }
