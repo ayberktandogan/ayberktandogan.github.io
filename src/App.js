@@ -7,7 +7,6 @@ import ContactMe from './components/contact-me'
 import Footer from './components/footer'
 
 import Box from '@material-ui/core/Box'
-import makeStyles from '@material-ui/styles/makeStyles'
 import { Divider } from '@material-ui/core';
 
 function SectionContainer(props) {

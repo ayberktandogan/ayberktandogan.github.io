@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import makeStyles from '@material-ui/styles/makeStyles'
 import clsx from 'clsx'
 
-import { ProjectForFansubs, ProjectKargoTakip, ReactJSLogo, ExpressJSLogo, NodeJSLogo, MaterialUILogo, MariaDBLogo } from '../config/assets'
+import { ProjectForFansubs, ProjectKargoTakip } from '../config/assets'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faGlobe, faBook } from '@fortawesome/free-solid-svg-icons'
@@ -193,7 +193,7 @@ export default function Projects() {
     const projectList = [
         {
             name: "ForFansubs",
-            techs: "",
+            techs: [],
             description: "Anime & Manga çeviri toplulukları için yazılmış uygulama topluluğu. İşlerini saklayabilecekleri bir veritabanı olması yanında, bu işleri izleyicilerine de sunabilecekleri bir uygulamadır.\n\nBack-end'i NodeJS, Express ve MariaDB, front-end ve yönetim paneli React ve MaterialUI kullanılarak hazırlanmıştır.\n\nDetaylar için aşağıdaki linkleri kullanabilirsiniz.",
             githubLink: "https://github.com/ForFansubs",
             websiteLink: "https://forfansubs.github.io",
@@ -205,7 +205,7 @@ export default function Projects() {
         },
         {
             name: "Kargo Takip Uygulaması",
-            techs: "",
+            techs: [],
             description: "Hürriyet'te 1. zorunlu stajımı yaparken dosyam için hazırlamış olduğum Kargo Takip uygulaması.\n\nBack-end'de NodeJS & Express ve MongoDB, front-end'de React kullanarak hazırlandı. MERN stack uyumlu yazıldı.",
             githubLink: "https://github.com/ayberktandogan/MTM2002---Project1---Kargo_Takip",
             image: ProjectKargoTakip,
@@ -286,7 +286,7 @@ export default function Projects() {
 ProjectBox.propTypes = {
     display: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
-    techs: PropTypes.array.isRequired,
+    techs: PropTypes.array,
     description: PropTypes.string.isRequired,
     githubLink: PropTypes.string,
     websiteLink: PropTypes.string,
