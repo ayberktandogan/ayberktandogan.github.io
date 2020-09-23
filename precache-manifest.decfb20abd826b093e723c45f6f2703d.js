@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3fae6d782bbe2b96377e599fafbb3f9f",
+    "revision": "6e88a5090af970cfe781aa5c4fb07a9c",
     "url": "/index.html"
   },
   {
-    "revision": "478a8b2c365e7f020c77",
+    "revision": "c7f5b89ab1b8e0388797",
     "url": "/static/css/main.a0d7db1f.chunk.css"
   },
   {
-    "revision": "6f2fa176996775400d52",
-    "url": "/static/js/2.700b9082.chunk.js"
+    "revision": "880bf345405399efac06",
+    "url": "/static/js/2.74df1c64.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "/static/js/2.700b9082.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.74df1c64.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "478a8b2c365e7f020c77",
-    "url": "/static/js/main.498b5d7e.chunk.js"
+    "revision": "c7f5b89ab1b8e0388797",
+    "url": "/static/js/main.2b594d97.chunk.js"
   },
   {
     "revision": "ed9fe1974c8e598ef6f7",
@@ -34,6 +34,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "82fda438b6aef6ce5f2380a0c99c9916",
     "url": "/static/media/about-me.82fda438.gif"
+  },
+  {
+    "revision": "01c944619825173bff60a2d90dcee27c",
+    "url": "/static/media/erbasimakina.01c94461.png"
   },
   {
     "revision": "82e5d2a5c230307fc1b80ac4ae2c9a7d",
