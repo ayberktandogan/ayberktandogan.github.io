@@ -1,14 +1,13 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import red from '@material-ui/core/colors/red'
+import { purple } from '@material-ui/core/colors';
 
 const palette = {
-    primary: { main: red["500"] },
+    primary: { main: purple[700] },
     secondary: { main: 'rgb(255,127,80)' },
     background: {
         default: "#121212",
-        level1: "#212121",
-        level2: "#333",
-        paper: "#424242"
+        paper: "#212121"
     },
     contrastThreshold: 3,
     type: "dark"
@@ -24,33 +23,6 @@ const props = {
 
 const typography = {
     fontFamily: "Geomanist",
-    h1: {
-        fontWeight: "bold",
-        fontSize: "3.4rem",
-        lineHeight: 1.2
-    },
-    h2: {
-        fontWeight: "bold",
-        fontSize: "2.6rem",
-        lineHeight: 1.2
-    },
-    h3: {
-        fontWeight: "bold",
-        fontSize: "1.4rem",
-        lineHeight: 1.2
-    },
-    h4: {
-        fontWeight: "bold",
-        fontSize: "1.2rem"
-    },
-    h5: {
-        fontWeight: "bold",
-        fontSize: "1rem"
-    },
-    h6: {
-        fontWeight: "bold",
-        fontSize: ".8rem"
-    },
     body1: {
         fontFamily: "'Open Sans', sans-serif"
     },

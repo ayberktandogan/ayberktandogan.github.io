@@ -1,57 +1,39 @@
-import React from 'react';
+import {
+  Switch,
+  Route,
+  useLocation
+} from "react-router-dom";
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import Wrapper from './components/wrapper';
 
-import About from './components/about'
-import Talents from './components/talents'
-import Projects from './components/projects'
-import ContactMe from './components/contact-me'
-import Footer from './components/footer'
-
-import Box from '@material-ui/core/Box'
-import { Divider } from '@material-ui/core';
-
-function SectionContainer(props) {
-  if (props.withSpecialStyle) {
-    return (
-      <Box display="flex" flexDirection="column" alignItems="center" py={2}>
-        <Box maxWidth={1000} width={"100%"}>
-          {props.children}
-        </Box>
-      </Box>
-    )
-  }
-
-  return (
-    <Box>
-      <Box>
-        {props.children}
-      </Box>
-    </Box>
-  )
-}
+import IndexPage from './pages/index/index';
+import AboutPage from './pages/about/index'
+import { ABOUT_ME_PAGE, INDEX_PAGE, PROJECTS_PAGE, TALENTS_PAGE } from './config/routes';
+import TalentsPage from "./pages/talents";
+import ProjectsPage from './pages/projects'
 
 function App() {
+  const location = useLocation()
 
   return (
-    <>
-      <SectionContainer>
-        <About />
-      </SectionContainer>
-      <Divider />
-      <SectionContainer>
-        <Projects />
-      </SectionContainer>
-      <Divider />
-      <SectionContainer>
-        <Talents />
-      </SectionContainer>
-      <Divider />
-      <SectionContainer withSpecialStyle>
-        <ContactMe />
-      </SectionContainer>
-      <SectionContainer withSpecialStyle>
-        <Footer />
-      </SectionContainer>
-    </>
+    <Wrapper>
+      <TransitionGroup
+        exit={false}>
+        <CSSTransition
+          timeout={300}
+          classNames='fade'
+          unmountOnExit
+          key={location.key}
+        >
+          <Switch location={location}>
+            <Route path={INDEX_PAGE} exact component={IndexPage} />
+            <Route path={ABOUT_ME_PAGE} exact component={AboutPage} />
+            <Route path={TALENTS_PAGE} exact render={TalentsPage} />
+            <Route path={PROJECTS_PAGE} exact render={ProjectsPage} />
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
+    </Wrapper>
   );
 }
 
