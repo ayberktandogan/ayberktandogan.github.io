@@ -1,0 +1,22 @@
+---
+// @ts-nocheck 
+const {title} = Astro.props
+
+/* TailwindCSS and more */
+import "../styles/global.css"
+import "animate.css/animate.min.css";
+---
+
+<!-- Generic HTML -->
+<title>{title}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- instant.page -->
+<script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
