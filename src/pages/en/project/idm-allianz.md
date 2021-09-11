@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../../layouts/ProjectLayout.astro
 title: IDM Kimlik Yönetimi
 headerTitle: IDM Kimlik Yönetimi | Ayberk Tandoğan
 startDate: "Nisan 2021"

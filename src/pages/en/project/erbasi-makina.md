@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../../layouts/ProjectLayout.astro
 title: Erbaşı Makina
 headerTitle: Erbaşı Makina Projesi | Ayberk Tandoğan
 startDate: "Eylül 2020"

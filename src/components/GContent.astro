@@ -1,0 +1,30 @@
+---
+// @ts-nocheck 
+import GHead from './GHead.astro'
+import GFooter from './GFooter.astro'
+// You can import components from any supported Framework here!
+import Header from './Header/index.tsx'
+import { getLanguageFromURL } from "../languages";
+
+const {pathname} = Astro.request.url
+const {title} = Astro.props
+---
+
+<html lang={getLanguageFromURL(pathname)}>
+    <head>
+        <GHead title={title}/>
+    </head>
+    <body>
+        <Header client:load activePath={pathname} />
+        <main>
+            <section>
+                <div class="flex flex-col w-full items-center justify-center min-h-screen px-8 pt-24 md:pt-36 pb-48">
+                    <div class="flex flex-col mx-12 max-w-none lg:max-w-6xl w-full">
+                        <slot />
+                    </div>
+                </div>
+            </section>
+        </main>
+        <GFooter />
+    </body>
+</html>

@@ -1,37 +1,13 @@
 import { useState } from "react";
 import { HiMenu } from "react-icons/hi";
-
-const navItems = [
-    {
-        title: "Ana sayfa",
-        path: "/",
-    },
-    {
-        title: "Hakkımda",
-        path: "/about-me",
-    },
-    {
-        title: "Projelerim",
-        path: "/projects",
-    },
-    {
-        title: "Deneyimlerim",
-        path: "/past-experiences",
-    },
-];
+import { NAVBAR } from "../../config";
+import { getLanguageFromURL } from "../../languages";
 
 function NavItem(props: NavItemProps) {
-    const active =
-        props.activePath === "/"
-            ? props.activePath === props.path
-            : props.activePath && props.activePath.slice(0, props.activePath.length - 1) === props.path;
+    const active = props.activePath.length <= 4 ? props.activePath === props.path : props.activePath && props.activePath === props.path;
 
     return (
-        <a
-            className={`font-bold hover:text-purple-400 ${active ? "text-purple-900" : "text-purple-600"}`}
-            active={props.activePath === props.path ? "true" : "false"}
-            href={props.path}
-        >
+        <a className={`font-bold hover:text-purple-400 ${active ? "text-purple-900" : "text-purple-600"}`} href={props.path}>
             {props.title}
         </a>
     );
@@ -39,6 +15,7 @@ function NavItem(props: NavItemProps) {
 
 export default function Header(props: HeaderProps) {
     const [sidebar, setSidebar] = useState(false);
+    console.log(getLanguageFromURL(props.activePath));
 
     function handleSidebarButton() {
         if (!sidebar) {
@@ -56,7 +33,7 @@ export default function Header(props: HeaderProps) {
                     <div className='flex justify-end sm:justify-start items-center p-4 m-4 md:m-8'>
                         <div className='hidden sm:block'>
                             <nav className='flex gap-8'>
-                                {navItems.map((item) => (
+                                {NAVBAR[getLanguageFromURL(props.activePath)].map((item: NavItemProps) => (
                                     <NavItem key={item.title} {...item} activePath={props.activePath} />
                                 ))}
                             </nav>
@@ -72,7 +49,7 @@ export default function Header(props: HeaderProps) {
                     <>
                         <div className='w-screen h-screen bg-white absolute z-50'>
                             <nav className='flex flex-col divide-y-2 divide-gray-200 divide-solid'>
-                                {navItems.map((item, idx) => (
+                                {NAVBAR[getLanguageFromURL(props.activePath)].map((item: NavItemProps, idx: number) => (
                                     <div className='px-8 py-4' onClick={handleSidebarButton}>
                                         <NavItem key={item.title} {...item} activePath={props.activePath} />
                                     </div>

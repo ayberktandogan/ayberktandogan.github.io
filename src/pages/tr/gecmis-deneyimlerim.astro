@@ -1,0 +1,36 @@
+---
+// @ts-nocheck 
+import GContent from '../../components/GContent.astro'
+import PastExperienceTimelineItem from '../../components/Bits/PastExperienceTimelineItem.tsx'
+
+let title = 'Deneyimlerim | Ayberk Tandoğan';
+
+const pastExpList = [
+    {
+        title: "Hürriyet",
+        date: "Temmuz 2018 - Ağustos 2018",
+        image: "/assets/past-experiences/hurriyet.jpg",
+        description: "Hürriyet Bilgi Teknolojileri bölümünde yazılım stajımı gerçekleştirdim.\n\nBulunduğum zaman boyunca 1 adet fullstack web programı hazırladım."
+    },
+    {
+        title: "ForFansubs",
+        date: "Kasım 2018 - Devam Ediyor",
+        image: "/assets/projects/logo_forfansubs.png",
+        description: "ForFansubs projesi üstünde çalışmaya başladım."
+    },
+    {
+        title: "Allianz Türkiye",
+        date: "Nisan 2021 - Devam Ediyor",
+        image: "/assets/past-experiences/allianz.png",
+        description: "Allianz’ın düzenlemiş olduğu CodeBooth programı kapsamında uzun dönem stajyer olarak çalışıyorum.\n\nAllianz içerisindeki uygulamalarda yapılan tanımlar için kullanılan IDM projesindeki sayfaların Angular & Java Spring Boot kullanarak yenilenmesine katkıda bulunuyorum.\nAyrıca yeni sayfa isteklerinde de görev alıyorum."
+    }
+]
+---
+<GContent title={title}>
+    <div class="relative container mx-auto px-6 flex flex-col space-y-8">
+        <div
+            class="absolute z-0 w-2 h-full bg-white shadow-md inset-0 left-17 md:mx-auto md:right-0 md:left-0"
+        ></div>
+        {pastExpList.reverse().map((past, idx) => <PastExperienceTimelineItem {...past} idx={idx} />)}
+    </div>
+</GContent>

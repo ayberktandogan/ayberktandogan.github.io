@@ -1,0 +1,30 @@
+---
+// @ts-nocheck 
+// Component Imports
+import GContent from '../../components/GContent.astro'
+import IndexTechStack from '../../components/Bits/IndexTechStack.tsx'
+import NavButton from '../../components/NavButton/index.tsx'
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = 'Ayberk Tandoğan | Portfolio';
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<GContent title={title}>
+    <p class="text-2xl mb-4 font-semibold">
+        👋 Selam, ben
+    </p>
+    <h1 class="filter drop-shadow-lg font-bold text-5xl lg:text-7xl xl:text-8xl">Ayberk Tandoğan</h1>
+    <span class="leading-9 lg:leading-9 xl:leading-11 text-3xl lg:text-4xl xl:text-4xl font-semibold mt-6 lg:mt-10 mb-4 text-transparent bg-clip-text bg-gradient-to-br from-purple-800 to-purple-400">Yazılım Mühendisi</span>
+    <div class="flex text-gray-600 text-xl md:text-2xl flex-wrap">
+        <IndexTechStack />
+    </div>
+    <div class="mt-12 space-x-4">
+        <NavButton path="/assets/cv-tr.pdf" title="CV" target="_blank" />
+        <NavButton path="/tr/hakkimda" title="Hakkımda" />
+    </div>
+</GContent>

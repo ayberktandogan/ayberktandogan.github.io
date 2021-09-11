@@ -1,0 +1,27 @@
+---
+// @ts-nocheck 
+import GContent from '../../components/GContent.astro'
+import NavButton from '../../components/NavButton/index.js'
+
+let title = 'Hakkımda | Ayberk Tandoğan';
+---
+<GContent title={title}>
+    <div class="max-w-none lg:max-w-6xl w-full">
+    <p class="text-xl">
+        ✋ Tekrardan selam.
+        <br/>
+        <br/>
+        2015 Eylül'de başlayan Yıldız Teknik Üniversitesi <span class="font-bold">Matematik Mühendisliği</span> maceram, 2021 Eylül'de mezuniyetimle bitti.
+        <br/>
+        <br/>
+        Kodlamaya ilgim, üniversite yıllarımda katılmış olduğum bir hayran çeviri grubunda başladı. Elbette küçüklüğümden beri bilgisayarlar ve oyunlarla iç içe büyüdüm. Ancak üyesi olduğum grubun kullanmış olduğu MyBB forum yazılımının gerçekten yetersiz olduğunu gördüğümde, bir motivasyonla öncelikle <span class="font-bold">HTML/CSS</span>, sonrasında <span class="font-bold">JavaScript/React</span> öğrenmeye başladım. 6 ay sonra ilk versiyonunu, yaklaşık 1 yıl sonra 2. versiyonunu verdiğim web uygulamasına <a target="_blank" class="underline text-gray-800" href="https://github.com/ForFansubs">buradan</a> ulaşabilirsiniz.
+        <br/>
+        <br/>
+        JavaScript dışında, okulda aldığım derslerle hem teorik olarak hem de pratikte <span class="font-bold">C, C++, Matlab, MSSQL</span> gibi yazılım dilleri ve yazılımlarda kendimi geliştirdim.
+        <br/><span class="font-bold">Allianz Türkiye</span>'de yapmış olduğum uzun dönem stajımda, Destek Fonksiyonları ekibinde eski stack'te kalmış yetkilendirme ekranlarını <span class="font-bold">Angular ve Spring Boot</span> kullanarak yeni stack'e geçirmekten ve yeni ekranlar geliştirmekten sorumluydum. Stajım boyunca TypeScript, Java yazılım dillerini öğrendim ve <span class="font-bold">Jira, Confluence, BitBucket, Bamboo ve Sonar</span> gibi birçok farklı yazılımın nasıl çalıştıklarını gözlemleme ve kullanma fırsatı yakaladım. 
+    </p>
+    </div>
+    <div class="mt-12">
+        <NavButton path="/en/projects" title="Projelerim" />
+    </div>
+</GContent>
