@@ -1,5 +1,5 @@
 import { SiGithub, SiLinkedin } from "react-icons/si";
-import { FaFilePdf } from "react-icons/fa";
+import { FaEnvelope, FaFilePdf, FaMailBulk } from "react-icons/fa";
 
 const linkList = [
     {
@@ -13,6 +13,10 @@ const linkList = [
     {
         link: "/assets/cv-tr.pdf",
         logo: <FaFilePdf />,
+    },
+    {
+        link: "mailto:ayberk.tandogan@outlook.com",
+        logo: <FaEnvelope />,
     },
 ];
 
