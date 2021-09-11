@@ -1,0 +1,37 @@
+---
+// @ts-nocheck 
+import GHead from '../components/GHead.astro'
+import GFooter from '../components/GFooter.astro'
+import Header from '../components/Header/index.tsx'
+import NavButton from '../components/NavButton/index.tsx'
+import Project from '../components/Project/index.tsx'
+
+let title = 'Projelerim | Ayberk Tandoğan';
+const {pathname} = Astro.request.url
+
+let allPosts = Astro.fetchContent('./project/*.md');
+---
+    
+<html lang="tr">
+<head>
+    <GHead title={title} />
+</head>
+<body>
+    <Header client:load activePath={pathname} />
+    <main>
+        <section>
+                <div class="flex flex-col w-full items-center justify-center min-h-screen px-8 pt-24 md:pt-36 pb-48">
+                    <div class="flex flex-col mx-12 max-w-none lg:max-w-6xl w-full">
+                    <div class="flex flex-wrap w-full">
+                        {allPosts.map((project, idx) => <Project {...project} idx={idx} />)}
+                    </div>
+                    <div class="mt-12">
+                        <NavButton path="/past-experiences" title="Deneyimlerim" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <GFooter />
+</body>
+</html>

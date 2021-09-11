@@ -1,0 +1,7 @@
+{
+    "moduleResolution": "node",
+    "compilerOptions": {
+        "strict": true
+    },
+    "exclude": ["**/*.astro"]
+}
