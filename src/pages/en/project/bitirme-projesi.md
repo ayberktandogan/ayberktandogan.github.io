@@ -1,12 +1,12 @@
 ---
 layout: ../../../layouts/ProjectLayout.astro
-title: ReactJS ile Sıralama Algoritmalarını Görselleştirme
-headerTitle: ReactJS ile Sıralama Algoritmalarını Görselleştirme | Ayberk Tandoğan
-startDate: "Haziran 2021"
-description: Bitirme Projemin detayları
+title: Visualizing Sorting Algorithms with ReactJS
+headerTitle: Visualizing Sorting Algorithms with ReactJS | Ayberk Tandogan
+startDate: "June 2021"
+description: Details of my Graduation Thesis
 techStack: "JavaScript, React"
 logo: ""
 headerImage: "/assets/projects/image_bitirmeprojesi.png"
-company: "Yıldız Teknik Üniversitesi"
+company: "Yildiz Technical University"
 links: [{ link: "https://ayberktandogan.github.io/MTM4000-bitirme-projesi/", text: "Website" }]
 ---

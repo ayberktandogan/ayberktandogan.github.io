@@ -13,6 +13,6 @@ let allPosts = Astro.fetchContent('./project/*.md');
         {allPosts.map((project, idx) => <Project {...project} idx={idx} />)}
     </div>
     <div class="mt-12">
-        <NavButton path="/gecmis-deneyimlerim" title="Deneyimlerim" />
+        <NavButton path="/tr/past-experiences" title="Deneyimlerim" />
     </div>
 </GContent>

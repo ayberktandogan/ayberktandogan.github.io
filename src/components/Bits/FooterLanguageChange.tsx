@@ -9,7 +9,7 @@ export default function FooterLanguageChange() {
     return (
         <>
             {KNOWN_LANGUAGE_CODES.map((lang) => (
-                <span className='separated-bullet'>
+                <span className='separated-bullet' key={lang}>
                     <button onClick={(e) => handleLanguageChange(lang)}>{lang}</button>
                 </span>
             ))}

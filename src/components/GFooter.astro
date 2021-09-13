@@ -10,7 +10,7 @@ const {pathname} = Astro.request.url
 const time = new Date().getFullYear()
 ---
 
-<footer class="absolute bottom-8 left-0 right-0 text-center">
+<footer class="absolute bottom-8 left-0 right-0 text-center mx-12">
     <div>
         <FooterLinks lang={getLanguageFromURL(pathname)} />
     </div>

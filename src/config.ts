@@ -22,9 +22,14 @@ export const KNOWN_LANGUAGES = {
 //   apiKey: 'XXXXXXXXXX',
 // }
 
+export const CONSOLE_TEXT = {
+    tr: ["Hoş geldin!", "İstediğin gibi kurcala. Sen işini biliyorsundur zaten."],
+    en: ["Hello there!", "Suit yourself. This is our playground."],
+};
+
 export const FOOTER_TEXT = {
     tr: `<a href="https://astro.build/" class="underline">astro</a> & <a href="https://tr.reactjs.org/" class="underline">react</a> & <a href="https://tailwindcss.com/" class="underline">tailwindcss</a> ve biraz da ✨ ile hazırlandı.<br/>`,
-    en: `made with <a href="https://astro.build/" class="underline">astro</a> & <a href="https://tr.reactjs.org/" class="underline">react</a> & <a href="https://tailwindcss.com/" class="underline">tailwindcss</a> and little bit of ✨.<br/>`,
+    en: `made with <a href="https://astro.build/" class="underline">astro</a> & <a href="https://en.reactjs.org/" class="underline">react</a> & <a href="https://tailwindcss.com/" class="underline">tailwindcss</a> and a little bit of ✨.<br/>`,
 };
 
 export const NAVBAR = {
@@ -35,15 +40,19 @@ export const NAVBAR = {
         },
         {
             title: "Hakkımda",
-            path: "/tr/hakkimda",
+            path: "/tr/about-me",
         },
         {
             title: "Projelerim",
-            path: "/tr/projelerim",
+            path: "/tr/projects",
         },
         {
             title: "Deneyimlerim",
-            path: "/tr/gecmis-deneyimlerim",
+            path: "/tr/experience",
+        },
+        {
+            title: "Blog",
+            path: "/tr/blog",
         },
     ],
     en: [
@@ -60,8 +69,12 @@ export const NAVBAR = {
             path: "/en/projects",
         },
         {
-            title: "Work History",
-            path: "/en/past-experiences",
+            title: "Experience",
+            path: "/en/experience",
+        },
+        {
+            title: "Blog",
+            path: "/en/blog",
         },
     ],
 };

@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import figlet from "figlet";
+import figletFont from "figlet/importable-fonts/Standard.js";
 import { HiMenu } from "react-icons/hi";
-import { NAVBAR } from "../../config";
+import { CONSOLE_TEXT, NAVBAR } from "../../config";
 import { getLanguageFromURL } from "../../languages";
 
 function NavItem(props: NavItemProps) {
@@ -15,7 +17,18 @@ function NavItem(props: NavItemProps) {
 
 export default function Header(props: HeaderProps) {
     const [sidebar, setSidebar] = useState(false);
-    console.log(getLanguageFromURL(props.activePath));
+
+    useEffect(() => {
+        figlet.parseFont("figletFont", figletFont);
+        console.clear();
+        console.log(
+            `%c${figlet.textSync(CONSOLE_TEXT[getLanguageFromURL(props.activePath)][0], {
+                font: "figletFont",
+            })}`,
+            "color:#49b9f9;"
+        );
+        console.log(CONSOLE_TEXT[getLanguageFromURL(props.activePath)][1]);
+    }, []);
 
     function handleSidebarButton() {
         if (!sidebar) {
