@@ -6,10 +6,8 @@ import { CONSOLE_TEXT, NAVBAR } from "../../config";
 import { getLanguageFromURL } from "../../languages";
 
 function NavItem(props: NavItemProps) {
-    const active = props.activePath.split("/").pop() === props.path.split("/").pop();
-
     return (
-        <a className={`font-bold hover:text-purple-400 ${active ? "text-purple-900" : "text-purple-600"}`} href={props.path}>
+        <a className={`font-bold hover:text-purple-400 text-purple-600`} href={props.path}>
             {props.title}
         </a>
     );
