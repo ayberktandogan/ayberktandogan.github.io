@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../../layouts/ProjectLayout.astro
 title: ReactJS ile Sıralama Algoritmalarını Görselleştirme
 headerTitle: ReactJS ile Sıralama Algoritmalarını Görselleştirme | Ayberk Tandoğan
 startDate: "Haziran 2021"

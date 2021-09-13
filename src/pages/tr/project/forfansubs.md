@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ProjectLayout.astro
+layout: ../../../layouts/ProjectLayout.astro
 title: ForFansubs
 headerTitle: ForFansubs Projesi | Ayberk Tandoğan
 startDate: "2018"

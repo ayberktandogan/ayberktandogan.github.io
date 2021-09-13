@@ -1,26 +1,27 @@
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaEnvelope, FaFilePdf, FaMailBulk } from "react-icons/fa";
+import { getLanguageFromURL } from "../../languages";
 
-const linkList = [
-    {
-        link: "https://github.com/ayberktandogan",
-        logo: <SiGithub />,
-    },
-    {
-        link: "https://www.linkedin.com/in/ayberk-tandogan/",
-        logo: <SiLinkedin />,
-    },
-    {
-        link: "/assets/cv-tr.pdf",
-        logo: <FaFilePdf />,
-    },
-    {
-        link: "mailto:ayberk.tandogan@outlook.com",
-        logo: <FaEnvelope />,
-    },
-];
+export default function FooterLinks(props: FooterLinksProps) {
+    const linkList = [
+        {
+            link: "https://github.com/ayberktandogan",
+            logo: <SiGithub />,
+        },
+        {
+            link: "https://www.linkedin.com/in/ayberk-tandogan/",
+            logo: <SiLinkedin />,
+        },
+        {
+            link: `/assets/cv-${props?.lang}.pdf`,
+            logo: <FaFilePdf />,
+        },
+        {
+            link: "mailto:ayberk.tandogan@outlook.com",
+            logo: <FaEnvelope />,
+        },
+    ];
 
-export default function FooterLinks() {
     return (
         <div className='flex w-full justify-center gap-4 mb-4'>
             {linkList.map((link) => (
@@ -30,4 +31,8 @@ export default function FooterLinks() {
             ))}
         </div>
     );
+}
+
+interface FooterLinksProps {
+    lang: string;
 }

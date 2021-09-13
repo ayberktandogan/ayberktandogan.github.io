@@ -1,0 +1,28 @@
+---
+// @ts-nocheck 
+import GContent from '../../components/GContent.astro'
+import NavButton from '../../components/NavButton/index.js'
+
+let title = 'Hakkımda | Ayberk Tandoğan';
+---
+<GContent title={title}>
+    <div class="max-w-none lg:max-w-6xl w-full">
+    <p class="text-xl">
+        ✋ Hi.
+        <br/>
+        <br/>
+        My adventure with Yildiz Technical University, started in September 2015, ended with my graduation in September 2021. I now have a B.E. in <span class="font-bold">Mathematical Engineering</span>.
+        <br/>
+        <br/>
+        My interest in coding started when I joined a fansub group back in 2016. Of course I was always interested in computers and technology in general, but my group was using MyBB forum software which was very inefficient and not very useful for a fansub group. So with this motivation, I've started (in hopes of coding a new software from scratch for fansubs) learning <span class="font-bold">HTML/CSS</span> first, then moved onto <span class="font-bold">JavaScript/React</span>. In 6 months, we've started using the first version of the ForFansubs software. Later that year, I released the second version the software. After that, ForFansubs became an open source project. You can check out the project <a target="_blank" class="underline text-gray-800" href="https://github.com/ForFansubs">here</a>.
+        <br/>
+        <br/>
+        Other than JavaScript, classes I took at university helped me with languages and softwares like <span class="font-bold">C, C++, Matlab, MSSQL</span>.
+        <br/>
+        In the long-term intership I'm currently doing in Enabling Functions Domain at <span class="font-bold">Allianz Turkey</span>, I'm helping with migrating a legacy project using <span class="font-bold">Angular and Spring Boot</span>. During my intership, I've had chance to learn and code in TypeScript and Java, and had change to use <span class="font-bold">Jira, Confluence, Bamboo, Sonar</span> etc.
+    </p>
+    </div>
+    <div class="mt-12">
+        <NavButton path="/en/projects" title="Projects" />
+    </div>
+</GContent>

@@ -1,22 +1,26 @@
 ---
 // @ts-nocheck
-import FooterLinks from '../components/Bits/FooterLinks.js'
+import FooterLinks from '../components/Bits/FooterLinks.tsx'
+import FooterLanguageChange from '../components/Bits/FooterLanguageChange.tsx'
+import {FOOTER_TEXT} from '../config.ts'
+import { getLanguageFromURL } from "../languages";
+
+const {pathname} = Astro.request.url
 
 const time = new Date().getFullYear()
 ---
 
-<footer class="absolute bottom-8 left-0 right-0 text-center">
+<footer class="absolute bottom-8 left-0 right-0 text-center mx-12">
     <div>
-        <FooterLinks />
+        <FooterLinks lang={getLanguageFromURL(pathname)} />
     </div>
     <div>
         <p>
-            <a href="https://astro.build/" class="underline">astro</a> &
-            <a href="https://tr.reactjs.org/" class="underline">react</a> &
-            <a href="https://tailwindcss.com/" class="underline">tailwindcss</a>
-            ve biraz da ✨ ile hazırlandı.
-            <br/>
-            {time}
+            {FOOTER_TEXT[getLanguageFromURL(pathname)]}
         </p>
+        <div>
+            <FooterLanguageChange client:load />
+        </div>
+        <span>{time}</span>
     </div>
 </footer>
