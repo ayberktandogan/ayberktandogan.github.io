@@ -28,8 +28,8 @@ export const CONSOLE_TEXT = {
 };
 
 export const FOOTER_TEXT = {
-    tr: `<a href="https://astro.build/" class="underline">astro</a> & <a href="https://tr.reactjs.org/" class="underline">react</a> & <a href="https://tailwindcss.com/" class="underline">tailwindcss</a> ve biraz da ✨ ile hazırlandı.<br/>`,
-    en: `made with <a href="https://astro.build/" class="underline">astro</a> & <a href="https://en.reactjs.org/" class="underline">react</a> & <a href="https://tailwindcss.com/" class="underline">tailwindcss</a> and a little bit of ✨.<br/>`,
+    tr: `<a href="https://astro.build/" rel="noreferrer" class="underline">astro</a> & <a href="https://tr.reactjs.org/" rel="noreferrer" class="underline">react</a> & <a href="https://tailwindcss.com/" rel="noreferrer" class="underline">tailwindcss</a> ve biraz da ✨ ile hazırlandı.<br/>`,
+    en: `made with <a href="https://astro.build/" rel="noreferrer" class="underline">astro</a> & <a href="https://en.reactjs.org/" rel="noreferrer" class="underline">react</a> & <a href="https://tailwindcss.com/" rel="noreferrer" class="underline">tailwindcss</a> and a little bit of ✨.<br/>`,
 };
 
 export const NAVBAR = {

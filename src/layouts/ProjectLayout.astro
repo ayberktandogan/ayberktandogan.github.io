@@ -9,7 +9,7 @@ import ProjectLinks from '../components/Bits/ProjectLinks.tsx'
 const {content} = Astro.props
 
 ---
-<GContent title={content.headerTitle}>
+<GContent title={content.headerTitle} description={content.headerTitle}>
     <div class="flex justify-center">
         {content.headerImage ?
         <img class="w-full md:w-2/3 rounded shadow hover:shadow-xl" src={content.headerImage} />
