@@ -4,12 +4,14 @@ import GContent from '../../components/GContent.astro'
 import NavButton from '../../components/NavButton/index.tsx'
 import Project from '../../components/Project/index.tsx'
 
-let title = 'Projelerim | Ayberk Tandoğan';
+let title = 'Projects | Ayberk Tandoğan';
+let description = "Ayberk Tandogan | Portfolio Projects"
+
 const {pathname} = Astro.request.url
 
 let allPosts = Astro.fetchContent('./project/*.md');
 ---
-<GContent title={title}>
+<GContent title={title} description={description}>
     <div class="flex flex-wrap w-full">
         {allPosts.map((project, idx) => <Project {...project} idx={idx} />)}
     </div>

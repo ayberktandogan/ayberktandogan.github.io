@@ -25,7 +25,7 @@ export default function FooterLinks(props: FooterLinksProps) {
     return (
         <div className='flex w-full justify-center gap-4 mb-4'>
             {linkList.map((link) => (
-                <a href={link.link} target='_blank' className='text-gray-600 hover:text-gray-800 text-2xl'>
+                <a href={link.link} rel='noreferrer' target='_blank' className='text-gray-600 hover:text-gray-800 text-2xl'>
                     {link.logo}
                 </a>
             ))}

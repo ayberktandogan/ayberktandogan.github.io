@@ -23,7 +23,7 @@ export default function ProjectLinks(props: ProjectLinksProps) {
     return (
         <>
             {props.links.map((p) => (
-                <a href={p.link} target='_blank'>
+                <a href={p.link} rel='noreferrer' target='_blank'>
                     <div className='bg-blue-800 text-white p-2 rounded-xl shadow'>
                         <ProjectLink link={p.text} />
                     </div>

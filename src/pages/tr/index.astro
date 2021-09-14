@@ -10,11 +10,12 @@ import NavButton from '../../components/NavButton/index.tsx'
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let title = 'Ayberk Tandoğan | Portfolio';
+let description = "Ayberk Tandoğan | Portfolio"
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
-<GContent title={title}>
+<GContent title={title} description={description}>
     <p class="text-2xl mb-4 font-semibold">
         👋 Selam, ben
     </p>
@@ -24,7 +25,7 @@ let title = 'Ayberk Tandoğan | Portfolio';
         <IndexTechStack />
     </div>
     <div class="mt-12 space-x-4">
-        <NavButton path="/assets/cv-tr.pdf" title="CV" target="_blank" />
+        <NavButton path="/assets/cv-tr.pdf" title="CV" target="_blank" rel="noreferrer" />
         <NavButton path="/tr/about-me" title="Hakkımda" />
     </div>
 </GContent>

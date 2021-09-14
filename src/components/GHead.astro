@@ -1,6 +1,6 @@
 ---
 // @ts-nocheck 
-const {title} = Astro.props
+const {title, pathname, description, language} = Astro.props
 
 /* TailwindCSS and more */
 import "../styles/global.css"
@@ -12,6 +12,15 @@ import "animate.css/animate.min.css";
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="description" content={description}>
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@ayberk.tandogan" />
+<meta name="twitter:creator" content="@ayberktandogann" />
+<meta property="og:url" content={pathname} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={`/assets/meta_image_${language || "tr"}.png`} />
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

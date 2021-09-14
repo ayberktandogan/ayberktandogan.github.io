@@ -9,12 +9,14 @@ import WarningBox from '../../components/Error/warning.tsx'
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let title = 'Blog | Ayberk Tandoğan';
+let description = "Ayberk Tandoğan | Portfolio Blog"
+
 let allBlogPosts = Astro.fetchContent('./blog-posts/*.md');
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
-<GContent title={title}>
+<GContent title={title} description={description}>
     {!allBlogPosts.length ? 
     <WarningBox>
         <p>Şimdilik burada bir şey yok. (Ama umarım yakında olur 🤞)</p>

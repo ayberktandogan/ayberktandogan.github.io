@@ -7,12 +7,13 @@ import Header from './Header/index.tsx'
 import { getLanguageFromURL } from "../languages";
 
 const {pathname} = Astro.request.url
-const {title} = Astro.props
+const {title, description} = Astro.props
+console.log(Astro.props)
 ---
 
 <html lang={getLanguageFromURL(pathname)}>
     <head>
-        <GHead title={title}/>
+        <GHead title={title} pathname={pathname} description={description} language={getLanguageFromURL(pathname)}/>
     </head>
     <body>
         <Header client:load activePath={pathname} />
