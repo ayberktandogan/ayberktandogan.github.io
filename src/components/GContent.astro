@@ -8,7 +8,6 @@ import { getLanguageFromURL } from "../languages";
 
 const {pathname, origin, href} = Astro.request.url
 const {title, description} = Astro.props
-console.log(Astro.request)
 ---
 
 <html lang={getLanguageFromURL(pathname)}>

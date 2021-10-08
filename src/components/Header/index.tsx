@@ -25,7 +25,6 @@ export default function Header(props: HeaderProps) {
             })}`,
             "color:#49b9f9;"
         );
-        console.log(CONSOLE_TEXT[getLanguageFromURL(props.activePath)][1]);
     }, []);
 
     function handleSidebarButton() {
