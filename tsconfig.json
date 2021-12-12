@@ -1,6 +1,7 @@
 {
     "moduleResolution": "node",
     "compilerOptions": {
+        "jsx": "react",
         "strict": true
     },
     "exclude": ["**/*.astro"]

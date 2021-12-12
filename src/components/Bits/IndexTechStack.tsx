@@ -14,6 +14,9 @@ const techStack = [
         icon: "Angular",
     },
     {
+        icon: "Vue",
+    },
+    {
         icon: "Node",
     },
     {
@@ -24,6 +27,9 @@ const techStack = [
     },
     {
         icon: "SQL",
+    },
+    {
+        icon: "Jest",
     },
     {
         icon: "NoSQL",

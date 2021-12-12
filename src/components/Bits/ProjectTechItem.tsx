@@ -9,6 +9,8 @@ import {
     SiReact,
     SiSpring,
     SiTypescript,
+    SiVueDotJs,
+    SiVuetify
 } from "react-icons/si";
 
 export default function TechItem(props: TechItemProps) {
@@ -54,6 +56,12 @@ export default function TechItem(props: TechItemProps) {
         case "Spring Boot": {
             logo = <SiSpring size={16} />;
             break;
+        }
+        case "Vue": {
+            logo = <SiVueDotJs size={16} />
+        }
+        case "Vuetify": {
+            logo = <SiVuetify size={16} />
         }
         default:
             break;

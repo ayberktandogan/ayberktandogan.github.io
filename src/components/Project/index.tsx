@@ -9,7 +9,8 @@ export default function Project(props: any) {
                     className={`${
                         props.bgInvert
                             ? "bg-gradient-to-br from-purple-800 to-purple-400 rounded"
-                            : "bg-gradient-to-br from-red-800 to-red-400 rounded"
+                            : props.bgColor ?
+                            props.bgColor : "bg-gradient-to-br from-red-800 to-red-400 rounded"
                     } p-2 flex justify-center`}
                 >
                     {props.logo ? (

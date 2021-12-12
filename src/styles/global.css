@@ -8,6 +8,8 @@ body {
     position: relative;
 }
 
+.bg-black { background-color: #000; }
+
 @layer utilities {
     .separated-bullet:not(:empty) ~ .separated-bullet:not(:empty)::before {
         content: "•";
