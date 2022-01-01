@@ -13,7 +13,7 @@ export default function FooterLinks(props: FooterLinksProps) {
             logo: <SiLinkedin />,
         },
         {
-            link: `/assets/cv-${props?.lang}.pdf`,
+            link: `/assets/cv.pdf`,
             logo: <FaFilePdf />,
         },
         {
