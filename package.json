@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
-        "build": "astro build & cp .well-known dist/.well-known",
+        "build": "astro build && cp -r .well-known dist/.well-known",
         "preview": "astro preview",
         "deploy": "gh-pages -b master -d ./dist"
     },
